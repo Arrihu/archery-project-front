@@ -17,7 +17,7 @@ import {
 // sidebar nav config
 import navigation from '../../_nav';
 // routes config
-import routes from '../../routes';
+import routes from '../../routes'; 
 
 const DefaultAside = React.lazy(() => import('./DefaultAside'));
 const DefaultFooter = React.lazy(() => import('./DefaultFooter'));
@@ -40,6 +40,7 @@ class DefaultLayout extends Component {
             <DefaultHeader onLogout={e=>this.signOut(e)}/>
           </Suspense>
         </AppHeader>
+
         <div className="app-body">
           <AppSidebar fixed display="lg">
             <AppSidebarHeader />
@@ -50,6 +51,7 @@ class DefaultLayout extends Component {
             <AppSidebarFooter />
             <AppSidebarMinimizer />
           </AppSidebar>
+
           <main className="main">
             <AppBreadcrumb appRoutes={routes}/>
             <Container fluid>
@@ -72,12 +74,14 @@ class DefaultLayout extends Component {
               </Suspense>
             </Container>
           </main>
+
           <AppAside fixed>
             <Suspense fallback={this.loading()}>
               <DefaultAside />
             </Suspense>
           </AppAside>
         </div>
+        
         <AppFooter>
           <Suspense fallback={this.loading()}>
             <DefaultFooter />
