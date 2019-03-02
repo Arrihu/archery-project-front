@@ -11,7 +11,7 @@ class EventOrganizerList extends React.Component {
         <div>
             <br />
             <div className="row">
-                <div className="col-sm-6" align="left">
+                <div className="col-sm-6">
                     <h5>Event Organizer List Data</h5>
                 </div>
 
