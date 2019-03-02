@@ -10,17 +10,15 @@ class EventOrganizerList extends React.Component {
     return (
         <div>
             <br />
-            <div className="container">
-                <div className="row">
-                    <div className="col-sm-6" align="left">
-                        <h5>Event Organizer List Data</h5>
-                    </div>
+            <div className="row">
+                <div className="col-sm-6" align="left">
+                    <h5>Event Organizer List Data</h5>
+                </div>
 
-                    <div className="col-sm-6" align="right">
-                        <Button color="primary" onClick={this.props.modalToggle}>
-                            <i className="cui-cursor" /> Add Event Organizer
-                        </Button>
-                    </div>
+                <div className="col-sm-6" align="right">
+                    <Button color="primary" onClick={this.props.modalToggle}>
+                        <i className="cui-cursor" /> Add Event Organizer
+                    </Button>
                 </div>
             </div>
         
