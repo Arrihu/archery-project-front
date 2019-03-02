@@ -10,6 +10,10 @@ export default {
       },
     },
     {
+      title: true,
+      name: 'Data Master'
+    },
+    {
       name: 'Club',
       url: '/club',
       icon: 'icon-shield'
