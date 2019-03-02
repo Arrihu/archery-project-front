@@ -45,9 +45,9 @@ class EventOrganizerList extends React.Component {
                                         <td>{eo.position}</td>
                                         <td>{eo.description}</td>
                                         <td>
-                                            <Button color="info" size="sm" 
+                                            <Button color="warning" size="sm" 
                                                 onClick={this.props.selectEventOrganizer.bind(this, eo)}>
-                                                <i className="cui-cursor" size="sm" />
+                                                <i className="cui-note" size="sm" />
                                             </Button>
 
                                             <span style={{ paddingLeft: 5 }}></span>
