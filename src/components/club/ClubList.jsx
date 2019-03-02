@@ -38,12 +38,15 @@ class ClubList extends React.Component {
                                 <td>Arrihu</td>
                                 <td>Mataram</td>
                                 <td>
-                                    <button className="btn btn-warning">
-                                        <i className="cui-pencil"></i>
-                                    </button>
-                                    <button className="btn btn-danger">
+                                    <Button color="warning" size="sm">
+                                        <i className="cui-note"></i>
+                                    </Button>
+                                    
+                                    <span style={{ paddingLeft: 5 }}></span>
+
+                                    <Button color="danger" size="sm">
                                         <i className="cui-trash"></i>
-                                    </button>
+                                    </Button>
                                 </td>
                             </tr>
                         </tbody>
