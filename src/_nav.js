@@ -19,6 +19,11 @@ export default {
       icon: 'icon-shield'
     },
     {
+      name: 'Bow',
+      url: '/bow',
+      icon: 'icon-shield'
+    },
+    {
       name: 'Event Organizer',
       url: '/event_organizer',
       icon: 'icon-shield'
