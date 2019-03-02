@@ -9,8 +9,8 @@ class ClubList extends React.Component {
             <div>
                 <br/>
                 <div className="row">
-                    <div className="col-sm-6" align="left">
-                        <h5>List Data Club</h5>
+                    <div className="col-sm-6">
+                        <h5>Club List Data</h5>
                     </div>
 
                     <div className="col-sm-6" align="right">
