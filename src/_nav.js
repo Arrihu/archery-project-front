@@ -14,5 +14,10 @@ export default {
       url: '/club',
       icon: 'icon-shield'
     },
+    {
+      name: 'Event Organizer',
+      url: '/event_organizer',
+      icon: 'icon-shield'
+    },
   ]
 };
