@@ -8,17 +8,15 @@ class ClubList extends React.Component {
         return (
             <div>
                 <br/>
-                <div className="container">
-                    <div className="row">
-                        <div className="col-sm-6" align="left">
-                            <h5>List Data Club</h5>
-                        </div>
+                <div className="row">
+                    <div className="col-sm-6" align="left">
+                        <h5>List Data Club</h5>
+                    </div>
 
-                        <div className="col-sm-6" align="right">
-                            <Button color="primary" onClick={this.props.modalToggle}>
-                                <i className="cui-cursor" /> Add Club
-                            </Button>
-                        </div>
+                    <div className="col-sm-6" align="right">
+                        <Button color="primary" onClick={this.props.modalToggle}>
+                            <i className="cui-cursor" /> Add Club
+                        </Button>
                     </div>
                 </div>
 
