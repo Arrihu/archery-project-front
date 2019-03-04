@@ -10,28 +10,40 @@ export default {
       },
     },
     {
-      title: true,
-      name: 'Data Master'
+      name: 'Data Master',
+      icon: 'icon-pie-chart',
+      children: [
+        {
+          name: 'Club',
+          url: '/data-master/club',
+          icon: 'icon-shield'
+        },
+        {
+          name: 'Bow',
+          url: '/data-master/bow',
+          icon: 'icon-shield'
+        },
+        {
+          name: 'Arrow',
+          url: '/data-master/arrow',
+          icon: 'icon-shield'
+        },
+        {
+          name: 'Event Organizer',
+          url: '/data-master/event_organizer',
+          icon: 'icon-shield'
+        },
+      ]
     },
     {
-      name: 'Club',
-      url: '/club',
-      icon: 'icon-shield'
+      name: 'User',
+      url: '/user',
+      icon: 'icon-user'      
     },
     {
-      name: 'Bow',
-      url: '/bow',
-      icon: 'icon-shield'
-    },
-    {
-      name: 'Arrow',
-      url: '/arrow',
-      icon: 'icon-shield'
-    },
-    {
-      name: 'Event Organizer',
-      url: '/event_organizer',
-      icon: 'icon-shield'
+      name: 'Role',
+      url: '/role',
+      icon: 'icon-user'      
     },
   ]
 };
