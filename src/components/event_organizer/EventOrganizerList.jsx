@@ -2,14 +2,13 @@ import React from 'react'
 import { Table, Button } from 'reactstrap'
 
 
-class EventOrganizerList extends React.Component {
+ class EventOrganizerList extends React.Component {
   
   render() {
     const { event_organizers } = this.props.dataState
 
     return (
         <div>
-            <br />
             <div className="row">
                 <div className="col-sm-6">
                     <h5>Event Organizer List Data</h5>
