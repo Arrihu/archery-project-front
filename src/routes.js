@@ -6,15 +6,19 @@ const Club = React.lazy(() => import('./components/club/Club'))
 const Bow = React.lazy(() => import('./components/bow/Bow'))
 const Arrow = React.lazy(() => import('./components/arrow/Arrow'))
 const EventOrganizer = React.lazy(() => import('./components/event_organizer/EventOrganizer'))
+const User = React.lazy(() => import('./components/user/User'))
+const Role = React.lazy(() => import('./components/role/Role'))
 
 // https://github.com/ReactTraining/react-router/tree/master/packages/react-router-config
 const routes = [
   { path: '/', exact: true, name: 'Home', component: DefaultLayout },
   { path: '/dashboard', name: 'Dashboard', component: Dashboard },
-  { path: '/club', name: 'Club', component: Club },
-  { path: '/bow', name: 'Bow', component: Bow },
-  { path: '/arrow', name: 'Arrow', component: Arrow },
-  { path: '/event_organizer', name: 'Event Organizer', component: EventOrganizer }
+  { path: '/data-master/club', name: 'Club', component: Club },
+  { path: '/data-master/bow', name: 'Bow', component: Bow },
+  { path: '/data-master/arrow', name: 'Arrow', component: Arrow },
+  { path: '/data-master/event_organizer', name: 'Event Organizer', component: EventOrganizer },
+  { path: '/user', name: 'User', component: User },
+  { path: '/role', name: 'Role', component: Role },
 ];
 
 export default routes;
