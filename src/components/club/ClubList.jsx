@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button } from 'reactstrap'
+import { Button, Table } from 'reactstrap'
 
 
 class ClubList extends React.Component {
@@ -7,7 +7,6 @@ class ClubList extends React.Component {
     render() {
         return (
             <div>
-                <br/>
                 <div className="row">
                     <div className="col-sm-6">
                         <h5>Club List Data</h5>
@@ -22,10 +21,10 @@ class ClubList extends React.Component {
 
                 <br/>
                 <div className="card">
-                    <table className="table">
+                    <Table>
                         <thead>
                             <tr>
-                                <th scope="#">#</th>    
+                                <th scope="#">No</th>    
                                 <th scope="col">Name</th>    
                                 <th scope="col">Address</th>    
                                 <th scope="col">Action</th>    
@@ -50,7 +49,7 @@ class ClubList extends React.Component {
                                 </td>
                             </tr>
                         </tbody>
-                    </table>
+                    </Table>
                 </div>
             </div>
         )
