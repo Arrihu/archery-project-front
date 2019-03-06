@@ -33,6 +33,11 @@ export default {
           url: '/data-master/event_organizer',
           icon: 'icon-shield'
         },
+        {
+          name: 'Tournament',
+          url:'/data-master/tournament',
+          icon:'icon-shield'
+        }
       ]
     },
     {
