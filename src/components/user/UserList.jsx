@@ -26,7 +26,7 @@ class UserList extends React.Component {
                     <Table>
                         <thead>
                             <tr>
-                                <th style={{width: 30}}>No</th>
+                                <th style={{width: 30}}>#</th>
                                 <th style={{width: 150}}>Nama</th>
                                 <th style={{width: 100}}>Email</th>
                                 <th style={{width: 100}}>Password</th>
@@ -41,18 +41,18 @@ class UserList extends React.Component {
                                     return(
                                         <tr key={i}>
                                             <td>{i+1}</td>
-                                            <td>{user.nama}</td>
+                                            <td>{user.name}</td>
                                             <td>{user.email}</td>
                                             <td>{user.password}</td>
                                             <td>
-                                                <button class="btn btn-warning btn-sm" 
+                                                <button className="btn btn-warning btn-sm" 
                                                     onClick={this.props.selectUser.bind(this, user)}>
                                                     <i className="cui-note" />
                                                 </button>
 
                                                 <span style={{paddingLeft: 10}}></span>
 
-                                                <button class="btn btn-danger btn-sm" 
+                                                <button className="btn btn-danger btn-sm" 
                                                     onClick={this.props.onDeleteUser.bind(this, user.id)}>
                                                     <i className="cui-trash" />
                                                 </button>
