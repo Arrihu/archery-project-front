@@ -11,7 +11,7 @@ class ClubForm extends React.Component {
         return (
             <div>
                 <Modal isOpen={modal} toggle={this.props.modalToggle}>
-                    <ModalHeader toggle={this.props.modalToggle}>Club Data</ModalHeader>
+                    <ModalHeader toggle={this.props.modalToggle}>Add Data Club</ModalHeader>
 
                     <ModalBody>
                         <form action="">

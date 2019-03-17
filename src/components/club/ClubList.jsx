@@ -1,5 +1,4 @@
 import React from 'react'
-import { Button, Table } from 'reactstrap'
 
 
 class ClubList extends React.Component {
@@ -7,24 +6,27 @@ class ClubList extends React.Component {
     render() {
         return (
             <div>
-                <div className="row">
-                    <div className="col-sm-6">
-                        <h5>Club List Data</h5>
-                    </div>
+                <br/>
+                <div className="container">
+                    <div className="row">
+                        <div className="col-sm-6" align="left">
+                            <h5>List Data Club</h5>
+                        </div>
 
-                    <div className="col-sm-6" align="right">
-                        <Button color="primary" onClick={this.props.modalToggle}>
-                            <i className="cui-cursor" /> Add Club
-                        </Button>
+                        <div className="col-sm-6" align="right">
+                            <button className="btn btn-primary" 
+                                onClick={this.props.modalToggle}>Add Club
+                            </button>
+                        </div>
                     </div>
                 </div>
 
                 <br/>
                 <div className="card">
-                    <Table>
+                    <table className="table">
                         <thead>
                             <tr>
-                                <th scope="#">No</th>    
+                                <th scope="#">#</th>    
                                 <th scope="col">Name</th>    
                                 <th scope="col">Address</th>    
                                 <th scope="col">Action</th>    
@@ -37,19 +39,12 @@ class ClubList extends React.Component {
                                 <td>Arrihu</td>
                                 <td>Mataram</td>
                                 <td>
-                                    <Button color="warning" size="sm">
-                                        <i className="cui-note"></i>
-                                    </Button>
-                                    
-                                    <span style={{ paddingLeft: 5 }}></span>
-
-                                    <Button color="danger" size="sm">
-                                        <i className="cui-trash"></i>
-                                    </Button>
+                                    <button className="btn btn-warning">Edit</button>
+                                    <button className="btn btn-danger">Delete</button>
                                 </td>
                             </tr>
                         </tbody>
-                    </Table>
+                    </table>
                 </div>
             </div>
         )
