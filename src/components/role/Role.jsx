@@ -9,7 +9,7 @@ class Role extends React.Component {
         super(props);
         this.state = {
             id: '',
-            nama: '',
+            name: '',
             userId: '',
             roles: [],
             modal: false,
@@ -48,7 +48,7 @@ class Role extends React.Component {
     resetForm() {
         this.setState({
             id: '',
-            nama: '',
+            name: '',
             userId: ''
         });
     }
@@ -56,7 +56,7 @@ class Role extends React.Component {
     selectRole(role) {
         this.setState({
             id: role.id,
-            nama: role.nama,
+            name: role.name,
             userId: role.userId,
             mode: 'update'
         })
@@ -88,7 +88,7 @@ class Role extends React.Component {
     }
 
     listAllRole() {
-        const URL = "http://localhost:3002/role"
+        const URL = "http://localhost:3333/role"
 
         axios.get(URL)
             .then((response) => {
@@ -100,11 +100,11 @@ class Role extends React.Component {
 
     onCreateRole(event) {
         event.preventDefault();
-        const URL = "http://localhost:3002/role/create";
+        const URL = "http://localhost:3333/role/create";
 
         const role = {
             id: this.state.id,
-            nama: this.state.nama,
+            name: this.state.name,
             userId: this.state.userId
         };
 
@@ -121,11 +121,11 @@ class Role extends React.Component {
 
     onUpdateRole(event) {
         event.preventDefault()
-        const URL = "http://localhost:3002/role/update"
+        const URL = "http://localhost:3333/role/update"
 
         const role = {
             id: this.state.id,
-            nama: this.state.nama,
+            name: this.state.name,
             userId: this.state.userId
         }
 
@@ -138,7 +138,7 @@ class Role extends React.Component {
     }
 
     onDeleteRole(id) {
-        const URL = `http://localhost:3002/role/delete/${id}`
+        const URL = `http://localhost:3333/role/delete/${id}`
 
         axios.get(URL)
             .then(res => res.data)
