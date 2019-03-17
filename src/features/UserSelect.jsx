@@ -22,7 +22,7 @@ class UserSelect extends React.Component {
 
     userList() {
         const { dropdownList } = this.state
-        const URL = "http://localhost:3002/user"
+        const URL = "http://localhost:3333/user"
 
         axios.get(URL).then((response) => {
             let userObj = response.data.data;
@@ -42,7 +42,7 @@ class UserSelect extends React.Component {
 
         return(
             <div>
-                <select name={this.props.name} class="form-control" 
+                <select name={this.props.name} className="form-control" 
                 value={this.props.selectedId} onChange={this.props.handleChange}>
                     <option>Pilih User</option>
                     {
