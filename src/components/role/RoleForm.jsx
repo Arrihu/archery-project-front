@@ -17,7 +17,7 @@ class RoleForm extends React.Component {
                         <form onSubmit={mode === "update" 
                         ? this.props.onUpdateRole 
                         : this.props.onCreateRole}>
-                            <div class="form-group">
+                            <div className="form-group">
                                 <label>Name</label>
                                 <input name="name" type="text" className="form-control" 
                                     placeholder="Role name" value={name} 
@@ -25,7 +25,7 @@ class RoleForm extends React.Component {
                                 </input>
                             </div>
 
-                            <div class="form-group">
+                            <div className="form-group">
                                 <UserSelect name="userId"
                                     handleChange={this.props.handleChange}>
                                 </UserSelect>
