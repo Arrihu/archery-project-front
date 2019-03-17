@@ -11,7 +11,7 @@ class DataStore extends React.Component {
         super(props);
         this.state = {
             id: '',
-            nama: '',
+            name: '',
             email :'', 
             password: '',
             users: [],
@@ -50,7 +50,7 @@ class DataStore extends React.Component {
     resetForm() {
         this.setState({
             id: '',
-            nama: '',
+            name: '',
             email: '',
             password: ''
         })
@@ -59,7 +59,7 @@ class DataStore extends React.Component {
     selectUser(user) {
         this.setState({
             id: user.id,
-            nama: user.nama,
+            name: user.name,
             email: user.email,
             password: user.password,
             mode: 'update'
@@ -100,7 +100,7 @@ class DataStore extends React.Component {
     }
 
     listAllUser() {
-        const URL = "http://localhost:3002/user";
+        const URL = "http://localhost:3333/user";
         
         axios.get(URL)
             .then((result) => {
@@ -114,12 +114,12 @@ class DataStore extends React.Component {
         event.preventDefault();
         const user = {
             id: this.state.id,
-            nama: this.state.nama,
+            name: this.state.name,
             email: this.state.email,
             password: this.state.password
         };
     
-        axios.post('http://localhost:3002/user/create', user)
+        axios.post('http://localhost:3333/user/create', user)
             .then(res => res.data)
             .then(res => this.addUser(res.data));
 
@@ -130,12 +130,12 @@ class DataStore extends React.Component {
         event.preventDefault();
         const user = {
             id: this.state.id,
-            nama: this.state.nama,
+            name: this.state.name,
             email: this.state.email,
             password: this.state.password
         };
 
-        axios.post(`http://localhost:3002/user/update`, user)
+        axios.post(`http://localhost:3333/user/update`, user)
             .then(res => res.data)
             .then(res => this.updateUser(res.data));
     
@@ -143,7 +143,7 @@ class DataStore extends React.Component {
     }
 
     onDeleteUser(id) {
-        const URL = `http://localhost:3002/user/delete/${id}`
+        const URL = `http://localhost:3333/user/delete/${id}`
 
         axios.get(URL)
             .then(res => res.data)
