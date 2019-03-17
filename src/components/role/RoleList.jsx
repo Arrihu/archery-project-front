@@ -26,7 +26,7 @@ class RoleList extends React.Component {
                     <Table>
                         <thead>
                             <tr>
-                                <th style={{width: 20}}>No</th>
+                                <th style={{width: 20}}>#</th>
                                 <th style={{width: 100}}>Name</th>
                                 <th style={{width: 100}}>User</th>
                                 <th style={{width: 50}}>Action</th>
