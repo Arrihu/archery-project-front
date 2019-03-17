@@ -10,6 +10,11 @@ export default {
       },
     },
     {
+      name: 'Tournament',
+      url:'/tournament',
+      icon:'icon-shield'
+    },
+    {
       name: 'Data Master',
       icon: 'icon-pie-chart',
       children: [
@@ -32,11 +37,6 @@ export default {
           name: 'Event Organizer',
           url: '/data-master/event_organizer',
           icon: 'icon-shield'
-        },
-        {
-          name: 'Tournament',
-          url:'/data-master/tournament',
-          icon:'icon-shield'
         }
       ]
     },
