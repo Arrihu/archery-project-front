@@ -5,7 +5,7 @@ import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 class UserForm extends React.Component {
 
     render() {
-        const { name, email, password, modal, mode } = this.props.dataState
+        const { name, email, username, password, modal, mode } = this.props.dataState
 
         return(
             <div>
@@ -24,6 +24,12 @@ class UserForm extends React.Component {
                                 <label>Email</label>
                                 <input name="email" type="email" className="form-control"
                                 value={email} onChange={this.props.handleChange}></input>
+                            </div>
+
+                            <div className="form-group">
+                                <label>Username</label>
+                                <input name="username" type="test" className="form-control"
+                                value={username} onChange={this.props.handleChange}></input>
                             </div>
 
                             <div className="form-group">
