@@ -13,6 +13,7 @@ class DataStore extends React.Component {
             id: '',
             name: '',
             email :'', 
+            username: '',
             password: '',
             users: [],
             modal: false,
@@ -52,6 +53,7 @@ class DataStore extends React.Component {
             id: '',
             name: '',
             email: '',
+            username: '',
             password: ''
         })
     }
@@ -61,6 +63,7 @@ class DataStore extends React.Component {
             id: user.id,
             name: user.name,
             email: user.email,
+            username: user.username,
             password: user.password,
             mode: 'update'
         });
@@ -116,6 +119,7 @@ class DataStore extends React.Component {
             id: this.state.id,
             name: this.state.name,
             email: this.state.email,
+            username: this.state.username,
             password: this.state.password
         };
     
@@ -132,6 +136,7 @@ class DataStore extends React.Component {
             id: this.state.id,
             name: this.state.name,
             email: this.state.email,
+            username: this.state.username,
             password: this.state.password
         };
 
