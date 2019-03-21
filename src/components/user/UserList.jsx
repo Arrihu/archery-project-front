@@ -29,6 +29,7 @@ class UserList extends React.Component {
                                 <th style={{width: 30}}>#</th>
                                 <th style={{width: 150}}>Nama</th>
                                 <th style={{width: 100}}>Email</th>
+                                <th style={{width: 100}}>Username</th>
                                 <th style={{width: 100}}>Password</th>
                                 <th style={{width: 140}}>Action</th>
                             </tr>
@@ -43,6 +44,7 @@ class UserList extends React.Component {
                                             <td>{i+1}</td>
                                             <td>{user.name}</td>
                                             <td>{user.email}</td>
+                                            <td>{user.username}</td>
                                             <td>{user.password}</td>
                                             <td>
                                                 <button className="btn btn-warning btn-sm" 
