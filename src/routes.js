@@ -2,13 +2,13 @@ import React from 'react';
 import DefaultLayout from './containers/DefaultLayout';
 
 const Dashboard = React.lazy(() => import('./views/Dashboard'))
-const Club = React.lazy(() => import('./components/club/Club'))
-const Bow = React.lazy(() => import('./components/bow/Bow'))
-const Arrow = React.lazy(() => import('./components/arrow/Arrow'))
-const EventOrganizer = React.lazy(() => import('./components/event_organizer/EventOrganizer'))
-const User = React.lazy(() => import('./components/user/User'))
-const Role = React.lazy(() => import('./components/role/Role'))
-const Tournament = React.lazy(() => import('./components/tournament/Tournament'))
+const Club = React.lazy(() => import('./app/Club/Club'))
+const Bow = React.lazy(() => import('./app/Bow/Bow'))
+const Arrow = React.lazy(() => import('./app/Arrow/Arrow'))
+const EventOrganizer = React.lazy(() => import('./app/EventOrganizer/EventOrganizer'))
+const User = React.lazy(() => import('./app/User/User'))
+const Role = React.lazy(() => import('./app/Role/Role'))
+const Tournament = React.lazy(() => import('./app/Tournament/Tournament'))
 
 // https://github.com/ReactTraining/react-router/tree/master/packages/react-router-config
 const routes = [
