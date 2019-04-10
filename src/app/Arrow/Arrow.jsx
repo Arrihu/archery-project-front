@@ -10,7 +10,9 @@ class Arrow extends React.Component {
         super(props)
         this.state = {
             id: '',
-            arrow: ''
+            arrow_type: '',
+            length: '',
+            diameter: ''
         }
     }
 
