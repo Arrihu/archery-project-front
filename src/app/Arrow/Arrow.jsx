@@ -9,6 +9,8 @@ class Arrow extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
+            id: '',
+            arrow: '',
             modal: false
         }
     }
