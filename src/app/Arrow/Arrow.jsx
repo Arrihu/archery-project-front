@@ -11,11 +11,9 @@ class Arrow extends React.Component {
         this.state = {
             modal: false
         }
-
-        this.toggle = this.toggle.bind(this)
     }
 
-    toggle() {
+    toggle = () => {
         this.setState({
             modal: !this.state.modal
         })
