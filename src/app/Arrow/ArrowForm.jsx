@@ -1,41 +1,46 @@
 import React from 'react'
-import { Modal, ModalHeader, ModalBody, ModalFooter, Button } from 'reactstrap'
+import { Card, Button, Row, Col } from 'reactstrap'
+
+import './components/arrow.scss'
 
 
 class ArrowForm extends React.Component {
 
     render() {
-        const { modal } = this.props.dataState
-
         return (
             <div>
-                <Modal isOpen={modal} toggle={this.props.dataToggle}>
-                    <ModalHeader toggle={this.props.dataToggle}>Arrow Data</ModalHeader>
+                <Card className='form-card'>
+                    <h5><strong>Add Arrow Data</strong></h5>
+                    <form action="">
+                        <br/>
+                        <Row>
+                            <Col>
+                                <div className="form-group">
+                                    <label htmlFor="arrowType">Arrow Type</label>
+                                    <input type="text" className="form-control" placeholder="Arrow type" />
+                                </div>
+                            </Col>
 
-                    <ModalBody>
-                        <form action="">
-                            <div className="form-group">
-                                <label htmlFor="arrowType">Arrow Type</label>
-                                <input type="text" className="form-control" placeholder="Arrow type" />
-                            </div>
+                            <Col>
+                                <div className="form-group">
+                                    <label htmlFor="arrowLength">Length</label>
+                                    <input type="text" className="form-control" placeholder="Length" />
+                                </div>
+                            </Col>
 
-                            <div className="form-group">
-                                <label htmlFor="arrowLength">Length</label>
-                                <input type="text" className="form-control" placeholder="Length" />
-                            </div>
+                            <Col>
+                                <div className="form-group">
+                                    <label htmlFor="arrowDiameter">Diameter</label>
+                                    <input type="text" className="form-control" placeholder="Diameter" />
+                                </div>
+                            </Col>
+                        </Row>
+                    </form>
 
-                            <div className="form-group">
-                                <label htmlFor="arrowDiameter">Diameter</label>
-                                <input type="text" className="form-control" placeholder="Diameter" />
-                            </div>
-                        </form>
-                    </ModalBody>
-
-                    <ModalFooter>
-                        <Button color="primary">Save</Button>
-                        <Button color="secondary" onClick={this.props.dataToggle}>Cancel</Button>
-                    </ModalFooter>
-                </Modal>
+                    <Button className='btn-save' color="primary">Save</Button>
+                    <span className='btn-space'></span>
+                    <Button color="secondary" onClick={this.props.dataToggle}>Cancel</Button>
+                </Card>
             </div>
         )
     }
