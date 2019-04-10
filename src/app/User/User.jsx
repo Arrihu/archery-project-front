@@ -5,7 +5,7 @@ import UserForm from './UserForm'
 import UserList from './UserList'
 
 
-class DataStore extends React.Component {
+class User extends React.Component {
 
     constructor(props) {
         super(props);
@@ -19,36 +19,25 @@ class DataStore extends React.Component {
             modal: false,
             mode: 'add'
         };
-        
-        this.toggle = this.toggle.bind(this);
-        this.handleChange = this.handleChange.bind(this);
-        this.selectUser = this.selectUser.bind(this)
-        this.addUser = this.addUser.bind(this);
-        this.updateUser = this.updateUser.bind(this);
-        this.deleteUser = this.deleteUser.bind(this);
-        this.listAllUser = this.listAllUser.bind(this);
-        this.onCreateUser = this.onCreateUser.bind(this);
-        this.onUpdateUser = this.onUpdateUser.bind(this);
-        this.onDeleteUser = this.onDeleteUser.bind(this)
     }
 
     componentDidMount() {
         this.listAllUser()
     };
 
-    toggle() {
+    toggle = () => {
         this.setState({
             modal: !this.state.modal
         })
     }
 
-    handleChange(event) {
+    handleChange = (event) => {
         this.setState({
             [event.target.name]: event.target.value
         })
     }
 
-    resetForm() {
+    resetForm = () => {
         this.setState({
             id: '',
             name: '',
@@ -58,7 +47,7 @@ class DataStore extends React.Component {
         })
     }
 
-    selectUser(user) {
+    selectUser = (user) => {
         this.setState({
             id: user.id,
             name: user.name,
@@ -70,7 +59,7 @@ class DataStore extends React.Component {
         this.toggle();
     }
 
-    addUser(user) {
+    addUser = (user) => {
         const { users } = this.state;
         users.push(user);
     
@@ -79,7 +68,7 @@ class DataStore extends React.Component {
         })
     }
     
-    updateUser(user) {
+    updateUser = (user) => {
         const { users } = this.state;
 
         let index = users.findIndex((data) => data.id === user.id);
@@ -93,7 +82,7 @@ class DataStore extends React.Component {
         this.toggle();
     }
     
-    deleteUser(id) {
+    deleteUser = (id) => {
         const { users } = this.state;
         let temp = users.filter(data => data.id !== id);
 
@@ -102,7 +91,7 @@ class DataStore extends React.Component {
         });
     }
 
-    listAllUser() {
+    listAllUser = () => {
         const URL = "http://localhost:3333/user";
         
         axios.get(URL)
@@ -113,7 +102,7 @@ class DataStore extends React.Component {
             });
     }
 
-    onCreateUser(event) {
+    onCreateUser = (event) => {
         event.preventDefault();
         const user = {
             id: this.state.id,
@@ -130,7 +119,7 @@ class DataStore extends React.Component {
         this.toggle();
     }
     
-    onUpdateUser(event) {
+    onUpdateUser = (event) => {
         event.preventDefault();
         const user = {
             id: this.state.id,
@@ -147,7 +136,7 @@ class DataStore extends React.Component {
         this.resetForm()
     }
 
-    onDeleteUser(id) {
+    onDeleteUser = (id) => {
         const URL = `http://localhost:3333/user/delete/${id}`
 
         axios.get(URL)
@@ -179,4 +168,4 @@ class DataStore extends React.Component {
     }
 }
 
-export default DataStore;
+export default User
