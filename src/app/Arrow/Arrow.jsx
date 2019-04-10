@@ -10,15 +10,8 @@ class Arrow extends React.Component {
         super(props)
         this.state = {
             id: '',
-            arrow: '',
-            modal: false
+            arrow: ''
         }
-    }
-
-    toggle = () => {
-        this.setState({
-            modal: !this.state.modal
-        })
     }
 
     render() {
