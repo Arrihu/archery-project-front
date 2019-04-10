@@ -7,19 +7,6 @@ class ArrowList extends React.Component {
     render() {
         return (
             <div>
-                <div className="row">
-                    <div className="col-sm-6">
-                        <h5>Arrow List Data</h5>
-                    </div>
-
-                    <div className="col-sm-6" align="right">
-                        <Button color="primary" onClick={this.props.dataToggle}>
-                            <i className="cui-cursor"></i> Add Arrow
-                        </Button>
-                    </div>
-                </div>
-
-                <br/>
                 <div className="card">
                     <Table>
                         <thead>
