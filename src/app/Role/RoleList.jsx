@@ -3,7 +3,6 @@ import { Table, Button, Card, Row, Col } from 'reactstrap'
 
 import './style/role.scss'
 
-
 class RoleList extends React.Component {
 
     render() {
