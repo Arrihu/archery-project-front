@@ -13,13 +13,22 @@ class Role extends React.Component {
             id: '',
             name: '',
             userId: '',
+
             roles: [],
             mode: 'add',
+            showRoleForm: false
         };
     }
 
     componentDidMount() {
         this.listAllRole()
+    }
+
+    toggleRoleForm = () => {
+        this.setState({
+            showRoleForm: !this.state.showRoleForm
+        })
+        this.resetForm()
     }
 
     handleChange = (event) => {
@@ -43,8 +52,6 @@ class Role extends React.Component {
             userId: role.userId,
             mode: 'update'
         })
-
-        this.toggle()
     }
 
     addRole = (role) => {
@@ -99,7 +106,7 @@ class Role extends React.Component {
             })
 
         this.resetForm()
-        this.toggle()
+        this.toggleRoleForm()
     }
 
     onUpdateRole = (event) => {
@@ -117,7 +124,7 @@ class Role extends React.Component {
             .then(response => this.updateRole(response.data))
 
         this.resetForm();
-        this.toggle();
+        this.toggleRoleForm()
     }
 
     onDeleteRole = (id) => {
@@ -131,20 +138,24 @@ class Role extends React.Component {
     render() {
         return (
             <div>
-                <RoleForm
-                    dataState={this.state}
-                    handleChange={this.handleChange}
-                    onCreateRole={this.onCreateRole}
-                    onUpdateRole={this.onUpdateRole}
-                >
-                </RoleForm>
+                {this.state.showRoleForm &&
+                    <RoleForm
+                        dataState={this.state}
+                        toggleRoleForm={this.toggleRoleForm}
+                        handleChange={this.handleChange}
+                        onCreateRole={this.onCreateRole}
+                        onUpdateRole={this.onUpdateRole}
+                    />
+                }
 
-                <RoleList
-                    dataState={this.state}
-                    selectRole={this.selectRole}
-                    onDeleteRole={this.onDeleteRole}
-                >
-                </RoleList>
+                {!this.state.showRoleForm &&
+                    <RoleList
+                        dataState={this.state}
+                        toggleRoleForm={this.toggleRoleForm}
+                        selectRole={this.selectRole}
+                        onDeleteRole={this.onDeleteRole}
+                    />
+                }
             </div>
         )
     }
