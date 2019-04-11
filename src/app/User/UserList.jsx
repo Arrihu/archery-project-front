@@ -1,5 +1,7 @@
 import React from 'react'
-import { Button, Table, Card } from 'reactstrap';
+import { Button, Table, Card, Row, Col } from 'reactstrap';
+
+import './style/user.scss'
 
 
 class UserList extends React.Component {
@@ -10,6 +12,21 @@ class UserList extends React.Component {
         return(
             <div>
                 <Card>
+                    <Row>
+                        <Col>
+                            <div className='data-title'>
+                                <h4><b>List User Data</b></h4>
+                            </div>
+                        </Col>
+                        <Col>
+                            <div className='btn-add-user' align='right'>
+                                <Button onClick={this.props.toggleUserForm} color='primary'>
+                                    <i className='cui-cursor'></i> <b>Add User</b>
+                                </Button>
+                            </div>
+                        </Col>
+                    </Row>
+
                     <Table>
                         <thead>
                             <tr>
