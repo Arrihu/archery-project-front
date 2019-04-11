@@ -1,6 +1,9 @@
 import React from 'react'
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap'
+import { Button, Card, Row, Col } from 'reactstrap'
+
 import UserSelect from '../../features/UserSelect'
+import './style/role.scss'
+
 
 class RoleForm extends React.Component {
 
@@ -9,42 +12,36 @@ class RoleForm extends React.Component {
 
         return(
             <div>
-                <Modal isOpen={modal} toggle={this.props.modalToggle}>
-                    <ModalHeader toggle={this.props.modalToggle}
-                    >Role Form</ModalHeader>
+                <Card className='role-form-card'>
+                    <h5><strong>Add Role Data</strong></h5>
+                    <form onSubmit={mode === "update" ? this.props.onUpdateRole : this.props.onCreateRole}>
+                        <Row>
+                            <Col>
+                                <div className="form-group">
+                                    <label>Name</label>
+                                    <input name="name" type="text" className="form-control" 
+                                        placeholder="Role name" value={name} 
+                                        onChange={this.props.handleChange}>
+                                    </input>
+                                </div>
+                            </Col>
 
-                    <ModalBody>
-                        <form onSubmit={mode === "update" 
-                        ? this.props.onUpdateRole 
-                        : this.props.onCreateRole}>
-                            <div className="form-group">
-                                <label>Name</label>
-                                <input name="name" type="text" className="form-control" 
-                                    placeholder="Role name" value={name} 
-                                    onChange={this.props.handleChange}>
-                                </input>
-                            </div>
+                            <Col>
+                                <div className="form-group">
+                                    <label>Select User</label>
+                                    <UserSelect name="userId"
+                                        handleChange={this.props.handleChange}>
+                                    </UserSelect>
+                                </div>
+                            </Col>
+                        </Row>
+                    </form>
 
-                            <div className="form-group">
-                                <UserSelect name="userId"
-                                    handleChange={this.props.handleChange}>
-                                </UserSelect>
-                            </div>
-                        </form>
-                    </ModalBody>
-
-                    <ModalFooter>
-                        <Button color="success"
-                        onClick={mode === "update" 
-                        ? this.props.onUpdateRole 
-                        : this.props.onCreateRole}
-                        >Save</Button>
-
-                        <Button color="secondary"
-                        onClick={this.props.modalToggle}
-                        >cancel</Button>
-                    </ModalFooter>
-                </Modal>
+                    <Button className='btn-save-role' color="success" onClick={mode === "update" ? this.props.onUpdateRole 
+                    : this.props.onCreateRole}>Save</Button>
+                    <span className='btn-space-role'></span>
+                    <Button color="secondary">cancel</Button>
+                </Card>
             </div>
         )
     }
