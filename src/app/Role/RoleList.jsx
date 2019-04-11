@@ -30,15 +30,13 @@ class RoleList extends React.Component {
                                             <td>{role.name}</td>
                                             <td>{role.userId}</td>
                                             <td>
-                                                <Button color="warning" size="sm" 
-                                                    onClick={this.props.selectRole.bind(this, role)}>
+                                                <Button color="warning" size="sm" onClick={this.props.selectRole.bind(this, role)}>
                                                     <i className="cui-note" />
                                                 </Button>
 
                                                 <span style={{paddingLeft: 5}}></span>
 
-                                                <Button color="danger" size="sm" 
-                                                    onClick={this.props.onDeleteRole.bind(this, role.id)}>
+                                                <Button color="danger" size="sm" onClick={this.props.onDeleteRole.bind(this, role.id)}>
                                                     <i className="cui-trash" />
                                                 </Button>
                                             </td>
