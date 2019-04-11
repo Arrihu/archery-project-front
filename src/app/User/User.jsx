@@ -15,7 +15,7 @@ class User extends React.Component {
             email :'', 
             username: '',
             password: '',
-            
+
             users: [],
             mode: 'add',
             showUserForm: false
@@ -118,7 +118,7 @@ class User extends React.Component {
             .then(res => res.data)
             .then(res => this.addUser(res.data));
 
-        this.toggle();
+        this.toggleUserForm()
     }
     
     onUpdateUser = (event) => {
@@ -152,7 +152,6 @@ class User extends React.Component {
                 {this.state.showUserForm &&
                 <UserForm
                     dataState={this.state}
-                    modalToggle={this.toggle}
                     handleChange={this.handleChange}
                     onCreateUser={this.onCreateUser}
                     onUpdateUser={this.onUpdateUser}
@@ -165,7 +164,6 @@ class User extends React.Component {
                     dataState={this.state}
                     selectUser={this.selectUser}
                     onDeleteUser={this.onDeleteUser}
-                    modalToggle={this.toggle}
                     toggleUserForm={this.toggleUserForm}
                 />
                 }
