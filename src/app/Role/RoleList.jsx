@@ -1,5 +1,7 @@
 import React from 'react'
-import { Table, Button } from 'reactstrap'
+import { Table, Button, Card, Row, Col } from 'reactstrap'
+
+import './style/role.scss'
 
 
 class RoleList extends React.Component {
@@ -9,7 +11,22 @@ class RoleList extends React.Component {
 
         return(
             <div>
-                <div className="card">
+                <Card>
+                    <Row>
+                        <Col>
+                            <div className='list-role-title'>
+                                <h4><b>List Role Data</b></h4>
+                            </div>
+                        </Col>
+
+                        <Col>
+                            <div className='btn-add-role' align='right'>
+                                <Button color='primary' onClick={this.props.toggleRoleForm}>
+                                    <i className='cui-cursor'></i> <b>Add Role</b>
+                                </Button>
+                            </div>
+                        </Col>
+                    </Row>
                     <Table>
                         <thead>
                             <tr>
@@ -46,7 +63,7 @@ class RoleList extends React.Component {
                             }
                         </tbody>
                     </Table>
-                </div>
+                </Card>
             </div>
         )
     }
