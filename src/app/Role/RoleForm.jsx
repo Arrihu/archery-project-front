@@ -37,10 +37,12 @@ class RoleForm extends React.Component {
                         </Row>
                     </form>
 
-                    <Button className='btn-save-role' color="success" onClick={mode === "update" ? this.props.onUpdateRole 
-                    : this.props.onCreateRole}>Save</Button>
+                    <Button className='btn-save-role' color="primary" onClick={mode === "update" ? this.props.onUpdateRole 
+                    : this.props.onCreateRole}><b>Save</b></Button>
+
                     <span className='btn-space-role'></span>
-                    <Button color="secondary">cancel</Button>
+
+                    <Button color="secondary" onClick={this.props.toggleRoleForm}><b>Cancel</b></Button>
                 </Card>
             </div>
         )
