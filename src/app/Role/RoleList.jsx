@@ -9,19 +9,6 @@ class RoleList extends React.Component {
 
         return(
             <div>
-                <div className="row">
-                    <div className="col-sm-6">
-                        <h5>Role Data</h5>
-                    </div>
-
-                    <div className="col-sm-6" align="right">
-                        <Button color="primary" onClick={this.props.modalToggle}>
-                            <i className="cui-cursor" /> Add Role
-                        </Button>
-                    </div>
-                </div>
-                <br />
-
                 <div className="card">
                     <Table>
                         <thead>
