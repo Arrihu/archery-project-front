@@ -1,7 +1,9 @@
 import React from 'react'
 import axios from 'axios'
+
 import RoleForm from './RoleForm'
 import RoleList from './RoleList'
+
 
 class Role extends React.Component {
 
@@ -12,40 +14,21 @@ class Role extends React.Component {
             name: '',
             userId: '',
             roles: [],
-            modal: false,
             mode: 'add',
         };
-
-        this.toggle = this.toggle.bind(this)
-        this.handleChange = this.handleChange.bind(this)
-        this.resetForm = this.resetForm.bind(this)
-        this.selectRole = this.selectRole.bind(this)
-        this.addRole = this.addRole.bind(this)
-        this.updateRole = this.updateRole.bind(this)
-        this.deleteRole = this.deleteRole.bind(this)
-        this.listAllRole = this.listAllRole.bind(this);
-        this.onCreateRole = this.onCreateRole.bind(this)
-        this.onUpdateRole = this.onUpdateRole.bind(this)
-        this.onDeleteRole = this.onDeleteRole.bind(this)
     }
 
     componentDidMount() {
         this.listAllRole()
     }
 
-    toggle() {
-        this.setState({
-            modal: !this.state.modal
-        });
-    }
-
-    handleChange(event) {
+    handleChange = (event) => {
         this.setState({
             [event.target.name]: event.target.value
         });
     }
 
-    resetForm() {
+    resetForm = () => {
         this.setState({
             id: '',
             name: '',
@@ -53,7 +36,7 @@ class Role extends React.Component {
         });
     }
 
-    selectRole(role) {
+    selectRole = (role) => {
         this.setState({
             id: role.id,
             name: role.name,
@@ -64,13 +47,13 @@ class Role extends React.Component {
         this.toggle()
     }
 
-    addRole(role) {
+    addRole = (role) => {
         const { roles } = this.state;
         roles.push(role);
         this.setState({roles});
     }
 
-    updateRole(role) {
+    updateRole = (role) => {
         const { roles } = this.state
         let index = roles.findIndex(data => data.id === role.id)
 
@@ -81,13 +64,13 @@ class Role extends React.Component {
         })
     }
 
-    deleteRole(id) {
+    deleteRole = (id) => {
         const { roles } = this.state;
         let temp = roles.filter(data => data.id !== id);
         this.setState({ roles: temp });
     }
 
-    listAllRole() {
+    listAllRole = () => {
         const URL = "http://localhost:3333/role"
 
         axios.get(URL)
@@ -98,7 +81,7 @@ class Role extends React.Component {
             });
     }
 
-    onCreateRole(event) {
+    onCreateRole = (event) => {
         event.preventDefault();
         const URL = "http://localhost:3333/role/create";
 
@@ -119,7 +102,7 @@ class Role extends React.Component {
         this.toggle()
     }
 
-    onUpdateRole(event) {
+    onUpdateRole = (event) => {
         event.preventDefault()
         const URL = "http://localhost:3333/role/update"
 
@@ -137,7 +120,7 @@ class Role extends React.Component {
         this.toggle();
     }
 
-    onDeleteRole(id) {
+    onDeleteRole = (id) => {
         const URL = `http://localhost:3333/role/delete/${id}`
 
         axios.get(URL)
@@ -150,7 +133,6 @@ class Role extends React.Component {
             <div>
                 <RoleForm
                     dataState={this.state}
-                    modalToggle={this.toggle}
                     handleChange={this.handleChange}
                     onCreateRole={this.onCreateRole}
                     onUpdateRole={this.onUpdateRole}
@@ -159,7 +141,6 @@ class Role extends React.Component {
 
                 <RoleList
                     dataState={this.state}
-                    modalToggle={this.toggle}
                     selectRole={this.selectRole}
                     onDeleteRole={this.onDeleteRole}
                 >
