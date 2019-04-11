@@ -12,7 +12,9 @@ class UserForm extends React.Component {
         return(
             <div>
                 <Card className='user-form-card'>
+                    {/* title */}
                     <h5><strong>Add User Data</strong></h5>
+                    {/* form */}
                     <form onSubmit={mode === "update" ? this.props.onUpdateUser : this.props.onCreateUser}>
                         <Row>
                             <Col>
@@ -49,11 +51,12 @@ class UserForm extends React.Component {
                         </Row>
                     </form>
 
+                    {/* button action */}
                     <Button className='btn-save-user' type="submit" color="primary"
                     onClick={mode === "update" ? this.props.onUpdateUser : this.props.onCreateUser}
                     >Save</Button>
                     <span className='user-btn-space'></span>
-                    <Button color="secondary">Cancel</Button>
+                    <Button color="secondary" onClick={this.props.toggleUserForm}>Cancel</Button>
                 </Card>
             </div>
         )
