@@ -15,9 +15,10 @@ class User extends React.Component {
             email :'', 
             username: '',
             password: '',
+            
             users: [],
-            modal: false,
-            mode: 'add'
+            mode: 'add',
+            showUserForm: false
         };
     }
 
@@ -25,10 +26,11 @@ class User extends React.Component {
         this.listAllUser()
     };
 
-    toggle = () => {
+    toggleUserForm = () => {
         this.setState({
-            modal: !this.state.modal
+            showUserForm: !this.state.showUserForm
         })
+        this.resetForm()
     }
 
     handleChange = (event) => {
@@ -147,22 +149,26 @@ class User extends React.Component {
     render() {
         return (
             <div>
+                {this.state.showUserForm &&
                 <UserForm
                     dataState={this.state}
                     modalToggle={this.toggle}
                     handleChange={this.handleChange}
                     onCreateUser={this.onCreateUser}
                     onUpdateUser={this.onUpdateUser}
-                >
-                </UserForm>
+                    toggleUserForm={this.toggleUserForm}
+                />
+                }
 
+                {!this.state.showUserForm && 
                 <UserList
                     dataState={this.state}
                     selectUser={this.selectUser}
                     onDeleteUser={this.onDeleteUser}
                     modalToggle={this.toggle}
-                >
-                </UserList>
+                    toggleUserForm={this.toggleUserForm}
+                />
+                }
             </div>
         )
     }
