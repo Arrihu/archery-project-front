@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Table } from 'reactstrap';
+import { Button, Table, Card } from 'reactstrap';
 
 
 class UserList extends React.Component {
@@ -9,7 +9,7 @@ class UserList extends React.Component {
 
         return(
             <div>
-                <div className="card">
+                <Card>
                     <Table>
                         <thead>
                             <tr>
@@ -34,17 +34,16 @@ class UserList extends React.Component {
                                             <td>{user.username}</td>
                                             <td>{user.password}</td>
                                             <td>
-                                                <button className="btn btn-warning btn-sm" 
-                                                    onClick={this.props.selectUser.bind(this, user)}>
+                                                <Button color='warning' size='sm' onClick={this.props.selectUser.bind(this, user)}>
                                                     <i className="cui-note" />
-                                                </button>
+                                                </Button>
 
                                                 <span style={{paddingLeft: 10}}></span>
 
-                                                <button className="btn btn-danger btn-sm" 
+                                                <Button className="btn btn-danger btn-sm" 
                                                     onClick={this.props.onDeleteUser.bind(this, user.id)}>
                                                     <i className="cui-trash" />
-                                                </button>
+                                                </Button>
                                             </td>
                                         </tr>
                                     )
@@ -53,7 +52,7 @@ class UserList extends React.Component {
                             }
                         </tbody>
                     </Table>
-                </div>
+                </Card>
             </div>
         )
     }
