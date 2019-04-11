@@ -13,7 +13,6 @@ class UserForm extends React.Component {
             <div>
                 <Card className='user-form-card'>
                     <h5><strong>Add User Data</strong></h5>
-
                     <form onSubmit={mode === "update" ? this.props.onUpdateUser : this.props.onCreateUser}>
                         <Row>
                             <Col>
