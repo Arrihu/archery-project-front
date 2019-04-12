@@ -8,7 +8,7 @@ import './style/role.scss'
 class RoleForm extends React.Component {
 
     render() {
-        const { name, userId, modal, mode } = this.props.dataState
+        const { name, description, userId, mode } = this.props.dataState
 
         return(
             <div>
@@ -23,6 +23,13 @@ class RoleForm extends React.Component {
                                         placeholder="Role name" value={name} 
                                         onChange={this.props.handleChange}>
                                     </input>
+                                </div>
+                            </Col>
+
+                            <Col>
+                                <div className='form-group'>
+                                    <label htmlFor="roleDescription">Description</label>
+                                    <textarea name="description" value={description} onChange={this.props.handleChange} cols="30" rows="3" className='form-control' placeholder='Description'></textarea>
                                 </div>
                             </Col>
 
@@ -42,7 +49,7 @@ class RoleForm extends React.Component {
 
                     <span className='btn-space-role'></span>
 
-                    <Button color="secondary" onClick={this.props.toggleRoleForm}><b>Cancel</b></Button>
+                    <Button color="secondary" onClick={this.props.onCancel}><b>Cancel</b></Button>
                 </Card>
             </div>
         )
