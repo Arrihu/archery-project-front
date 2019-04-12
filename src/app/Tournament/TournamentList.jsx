@@ -1,40 +1,41 @@
-import React from 'react';
-import { Table, Button } from 'reactstrap';
+import React from 'react'
+import { Table, Button, Card, Row, Col } from 'reactstrap'
+
+import './style/tournament.scss'
 
 
 class TournamentList extends React.Component {
 
     render() {
-        const { tournaments } = this.props.dataState;
+        const { tournaments } = this.props.dataState
 
         return(
             <div>
-                <div className="row">
-                    <div className="col-sm-6">
-                        <h5>Tournament Data</h5>
-                    </div>
-                    <div className="col-sm-6" align="right">
-                        <a href="http://localhost:3000/#/tournament-setup"
-                        type="button" style={{ padding: 10, backgroundColor: "#59c8e6",
-                        color: '#ffffff' }}
-                        >
-                            <i className="cui-cursor" /> Add Tournament
-                        </a>
-                    </div>
-                </div>
-                <br />
-                
-                <div className="card">
+                <Card>
+                    <Row>
+                        <Col>
+                            <div className="tournament-list-title">
+                                <h4><b>List Tournament Data</b></h4>
+                            </div>
+                        </Col>
+
+                        <Col>
+                            <div className="btn-add-tournament" align="right">
+                                <Button color='primary' onClick={this.props.toggleTournamentForm}>
+                                    <i className="cui-cursor" /> <b>Add Tournament</b>
+                                </Button>
+                            </div>
+                        </Col>
+                    </Row>
                     <Table>
                         <thead>
                             <tr>
-                                <th>No</th>
+                                <th>#</th>
                                 <th>Name</th>
                                 <th>Address</th>
                                 <th>Start Date</th>
                                 <th>End Date</th>
-                                <th>Type</th>
-                                <th>Format</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
 
@@ -45,18 +46,17 @@ class TournamentList extends React.Component {
                                     return(
                                         <tr key={i}>
                                             <td>{i+1}</td>
-                                            <td>{tournament.nama}</td>
-                                            <td>{tournament.lokasi}</td>
-                                            <td>{tournament.alamat}</td>
-                                            <td>{tournament.tanggal_mulai}</td>
-                                            <td>{tournament.tanggal_berakhir}</td>
+                                            <td>{tournament.name}</td>
+                                            <td>{tournament.address}</td>
+                                            <td>{tournament.start_date}</td>
+                                            <td>{tournament.end_date}</td>
                                             <td>
                                                 <Button color="warning" size="sm" 
                                                     onClick={this.props.selectTournament.bind(this, tournament)}>
                                                     <i className="cui-note" />
                                                 </Button>
 
-                                                <span style={{paddingLeft: 5}}></span>
+                                                <span className='btn-list-tournament-action'></span>
 
                                                 <Button color="danger" size="sm" 
                                                     onClick={this.props.onDeleteTournament.bind(this, tournament.id)}>
@@ -69,7 +69,7 @@ class TournamentList extends React.Component {
                             }
                         </tbody>
                     </Table>
-                </div>
+                </Card>
             </div>
         )
     }
