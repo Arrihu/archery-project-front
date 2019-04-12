@@ -14,6 +14,7 @@ class EventOrganizerForm extends React.Component {
         <Card className='eo-form-card'>
           {/* title */}
           <h5><b>Event Organizer Form</b></h5>
+          
           {/* event organizer form */}
           <form onSubmit={mode === "update" ? this.props.onUpdateEventOrganizer : this.props.onCreateEventOrganizer}>
             <Row>
