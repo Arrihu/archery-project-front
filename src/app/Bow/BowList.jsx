@@ -1,58 +1,72 @@
 import React from 'react'
-import { Button, Table } from 'reactstrap'
+import { Button, Table, Card, Row, Col } from 'reactstrap'
+
+import './style/bow.scss'
 
 
 class BowList extends React.Component {
 
     render() {
+        const { bows } = this.props.dataState
+
         return (
             <div>
-                <div className="row">
-                    <div className="col-sm-6">
-                        <h5>Bow List Data</h5>
-                    </div>
+                <Card>
+                    <Row>
+                        <Col>
+                            <div className="bow-list-title">
+                                <h4><b>Bow List Data</b></h4>
+                            </div>
+                        </Col>
 
-                    <div className="col-sm-6" align="right">
-                        <Button color="primary" onClick={this.props.dataToggle}>
-                            <i className="cui-cursor"></i> Add Bow
-                        </Button>
-                    </div>
-                </div>
+                        <Col>
+                            <div className="btn-add-bow" align="right">
+                                <Button color="primary" onClick={this.props.toggleBowForm}>
+                                    <i className="cui-cursor"></i> <b>Add Bow</b>
+                                </Button>
+                            </div>
+                        </Col>
+                    </Row>
 
-                <br/>
-                <div className="card">
                     <Table>
                         <thead>
                             <tr>
-                                <th>No</th>
+                                <th>#</th>
                                 <th>Bow Type</th>
-                                <th>Bow Length</th>
-                                <th>Bow Weight</th>
+                                <th>Bow Length (Inch)</th>
+                                <th>Bow Weight (LBS)</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
 
                         <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>Recurve Bow</td>
-                                <td>62 Inch</td>
-                                <td>32 Lbs</td>
-                                <td>
-                                    <Button color="warning" size="sm">
-                                        <i className="cui-note"></i>
-                                    </Button>
+                            {
+                                typeof(bows) === 'object' &&
+                                bows.map((bow, i) => {
+                                    return (
+                                        <tr key={i}>
+                                            <td>{i+1}</td>
+                                            <td>{bow.type}</td>
+                                            <td>{bow.length}</td>
+                                            <td>{bow.weight}</td>
+                                            <td>
+                                                <Button color="warning" size="sm" onClick={this.props.selectBow.bind(this, bow)}>
+                                                    <i className="cui-note"></i>
+                                                </Button>
 
-                                    <span style={{ paddingLeft: 5 }}></span>
+                                                <span style={{ paddingLeft: 5 }}></span>
 
-                                    <Button color="danger" size="sm">
-                                        <i className="cui-trash"></i>
-                                    </Button>
-                                </td>
-                            </tr>
+                                                <Button color="danger" size="sm" onClick={this.props.onDeleteBow.bind(this, bow.id)}>
+                                                    <i className="cui-trash"></i>
+                                                </Button>
+                                            </td>
+                                        </tr>
+                                    )
+                                })
+                            }
                         </tbody>
                     </Table>
-                </div>
+                </Card>
             </div>
         )
     }
