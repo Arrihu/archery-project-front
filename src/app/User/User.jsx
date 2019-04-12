@@ -30,7 +30,6 @@ class User extends React.Component {
         this.setState({
             showUserForm: !this.state.showUserForm
         })
-        this.resetForm()
     }
 
     handleChange = (event) => {
@@ -49,6 +48,11 @@ class User extends React.Component {
         })
     }
 
+    onCancel = () => {
+        this.resetForm()
+        this.toggleUserForm()
+    }
+
     selectUser = (user) => {
         this.setState({
             id: user.id,
@@ -58,7 +62,8 @@ class User extends React.Component {
             password: user.password,
             mode: 'update'
         });
-        this.toggle();
+
+        this.toggleUserForm()
     }
 
     addUser = (user) => {
@@ -80,8 +85,6 @@ class User extends React.Component {
             users: users,
             mode: 'add'
         });
-
-        this.toggle();
     }
     
     deleteUser = (id) => {
@@ -106,6 +109,7 @@ class User extends React.Component {
 
     onCreateUser = (event) => {
         event.preventDefault();
+        
         const user = {
             id: this.state.id,
             name: this.state.name,
@@ -118,6 +122,7 @@ class User extends React.Component {
             .then(res => res.data)
             .then(res => this.addUser(res.data));
 
+        this.resetForm()
         this.toggleUserForm()
     }
     
@@ -136,6 +141,7 @@ class User extends React.Component {
             .then(res => this.updateUser(res.data));
     
         this.resetForm()
+        this.toggleUserForm()
     }
 
     onDeleteUser = (id) => {
@@ -150,22 +156,23 @@ class User extends React.Component {
         return (
             <div>
                 {this.state.showUserForm &&
-                <UserForm
-                    dataState={this.state}
-                    handleChange={this.handleChange}
-                    onCreateUser={this.onCreateUser}
-                    onUpdateUser={this.onUpdateUser}
-                    toggleUserForm={this.toggleUserForm}
-                />
+                    <UserForm
+                        dataState={this.state}
+                        handleChange={this.handleChange}
+                        onCreateUser={this.onCreateUser}
+                        onUpdateUser={this.onUpdateUser}
+                        toggleUserForm={this.toggleUserForm}
+                        onCancel={this.onCancel}
+                    />
                 }
 
                 {!this.state.showUserForm && 
-                <UserList
-                    dataState={this.state}
-                    selectUser={this.selectUser}
-                    onDeleteUser={this.onDeleteUser}
-                    toggleUserForm={this.toggleUserForm}
-                />
+                    <UserList
+                        dataState={this.state}
+                        selectUser={this.selectUser}
+                        onDeleteUser={this.onDeleteUser}
+                        toggleUserForm={this.toggleUserForm}
+                    />
                 }
             </div>
         )
