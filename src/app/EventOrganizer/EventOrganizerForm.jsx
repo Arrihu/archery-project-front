@@ -1,48 +1,48 @@
 import React from 'react'
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap'
+import { Button, Card, Row, Col } from 'reactstrap'
+
+import './style/eventorganizer.scss'
 
 
 class EventOrganizerForm extends React.Component {
   
   render() {
-    const { position, description, modal, mode } = this.props.dataState
+    const { position, description, mode } = this.props.dataState
 
     return (
       <div>
-        <Modal isOpen={modal} toggle={this.props.modalToggle}>
-            <ModalHeader toggle={this.props.modalToggle}>Panitia Form</ModalHeader>
+        <Card className='eo-form-card'>
+          {/* title */}
+          <h5><b>Event Organizer Form</b></h5>
+          {/* event organizer form */}
+          <form onSubmit={mode === "update" ? this.props.onUpdateEventOrganizer : this.props.onCreateEventOrganizer}>
+            <Row>
+              <Col>
+                <div className="form-group">
+                    <label>Position</label>
+                    <input name="position" type="text" className="form-control"
+                        value={position} onChange={this.props.handleChange} placeholder='Position'>
+                    </input>
+                </div>
+              </Col>
 
-            <ModalBody>
-                <form onSubmit={mode === "update" 
-                    ? this.props.onUpdateEventOrganizer 
-                    : this.props.onCreateEventOrganizer}>
-                    <div className="form-group">
-                        <label>Position</label>
-                        <input name="position" type="text" className="form-control"
-                            value={position} onChange={this.props.handleChange}>
-                        </input>
-                    </div>
+              <Col>
+                <div className="form-group">
+                    <label>Description</label>
+                    <textarea name="description" value={description} onChange={this.props.handleChange} cols="30" rows="3" className='form-control' placeholder='Description'></textarea>
+                </div>
+              </Col>
+            </Row>
+          </form>
 
-                    <div className="form-group">
-                        <label>Description</label>
-                        <input name="description" type="text" className="form-control"
-                            value={description} onChange={this.props.handleChange}>
-                        </input>
-                    </div>
-                </form>
-            </ModalBody>
+          {/* action button */}
+          <Button color="success" onClick={mode === "update" ? this.props.onUpdateEventOrganizer 
+          : this.props.onCreateEventOrganizer}><b>Save</b></Button>
 
-            <ModalFooter>
-                <Button color="success" onClick={mode === "update" 
-                ? this.props.onUpdateEventOrganizer 
-                : this.props.onCreateEventOrganizer}
-                >Save</Button>
+          <span className='btn-eo-action-space'></span>
 
-                <Button color="secondary" 
-                onClick={this.props.modalToggle}
-                >Cancel</Button>
-            </ModalFooter>
-        </Modal>
+          <Button color="secondary" onClick={this.props.onCancel}><b>Cancel</b></Button>
+        </Card>
       </div>
     )
   }
