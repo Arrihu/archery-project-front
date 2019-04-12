@@ -1,51 +1,68 @@
 import React from 'react'
+import { Table, Button, Card, Row, Col } from 'reactstrap'
+
+import './style/club.scss'
 
 
 class ClubList extends React.Component {
 
     render() {
+        const { clubs } = this.props.dataState
+
         return (
             <div>
-                <br/>
-                <div className="container">
-                    <div className="row">
-                        <div className="col-sm-6" align="left">
-                            <h5>List Data Club</h5>
-                        </div>
+                <Card>
+                    <Row>
+                        <Col>
+                            <div className="list-club-title">
+                                <h4><b>List Club Data</b></h4>
+                            </div>
+                        </Col>
 
-                        <div className="col-sm-6" align="right">
-                            <button className="btn btn-primary" 
-                                onClick={this.props.modalToggle}>Add Club
-                            </button>
-                        </div>
-                    </div>
-                </div>
+                        <Col>
+                            <div className="btn-add-club" align="right">
+                                <Button color='primary' onClick={this.props.toggleClubForm}>
+                                    <i className='cui-cursor'></i> <b>Add Club</b>
+                                </Button>
+                            </div>
+                        </Col>
+                    </Row>
 
-                <br/>
-                <div className="card">
-                    <table className="table">
+                    <Table>
                         <thead>
                             <tr>
-                                <th scope="#">#</th>    
-                                <th scope="col">Name</th>    
-                                <th scope="col">Address</th>    
-                                <th scope="col">Action</th>    
+                                <th>#</th>    
+                                <th>Name</th>    
+                                <th>Address</th>    
+                                <th>Action</th>    
                             </tr>
                         </thead>
 
                         <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>Arrihu</td>
-                                <td>Mataram</td>
-                                <td>
-                                    <button className="btn btn-warning">Edit</button>
-                                    <button className="btn btn-danger">Delete</button>
-                                </td>
-                            </tr>
+                            {
+                                typeof(clubs) === 'object' &&
+                                clubs.map((club, i) => {
+                                    return (
+                                        <tr key={i}>
+                                            <td>{i+1}</td>
+                                            <td>{club.name}</td>
+                                            <td>{club.address}</td>
+                                            <td>
+                                                <Button color='warning' size='sm' onClick={this.props.selectClub.bind(this, club)}>
+                                                    <i className='cui-note'></i>
+                                                </Button>
+                                                <span className='btn-action-space'></span>
+                                                <Button color='danger' size='sm' onClick={this.props.onDeleteClub.bind(this, club.id)}>
+                                                    <i className='cui-trash'></i>
+                                                </Button>
+                                            </td>
+                                        </tr>
+                                    )
+                                })
+                            }
                         </tbody>
-                    </table>
-                </div>
+                    </Table>
+                </Card>
             </div>
         )
     }
