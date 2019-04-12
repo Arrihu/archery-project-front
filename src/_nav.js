@@ -50,5 +50,10 @@ export default {
       url: '/role',
       icon: 'icon-user'      
     },
+    {
+      name: 'Front Page',
+      url: '/home',
+      icon: 'icon-star'
+    }
   ]
 };
