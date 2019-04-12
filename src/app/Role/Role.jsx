@@ -12,6 +12,7 @@ class Role extends React.Component {
         this.state = {
             id: '',
             name: '',
+            description: '',
             userId: '',
 
             roles: [],
@@ -28,7 +29,6 @@ class Role extends React.Component {
         this.setState({
             showRoleForm: !this.state.showRoleForm
         })
-        this.resetForm()
     }
 
     handleChange = (event) => {
@@ -41,17 +41,26 @@ class Role extends React.Component {
         this.setState({
             id: '',
             name: '',
+            description: '',
             userId: ''
         });
+    }
+
+    onCancel = () => {
+        this.resetForm()
+        this.toggleRoleForm()
     }
 
     selectRole = (role) => {
         this.setState({
             id: role.id,
             name: role.name,
+            description: role.description,
             userId: role.userId,
             mode: 'update'
         })
+
+        this.toggleRoleForm()
     }
 
     addRole = (role) => {
@@ -63,12 +72,8 @@ class Role extends React.Component {
     updateRole = (role) => {
         const { roles } = this.state
         let index = roles.findIndex(data => data.id === role.id)
-
         roles[index] = role
-
-        this.setState({
-            roles: roles
-        })
+        this.setState({roles: roles})
     }
 
     deleteRole = (id) => {
@@ -95,6 +100,7 @@ class Role extends React.Component {
         const role = {
             id: this.state.id,
             name: this.state.name,
+            description: this.state.description,
             userId: this.state.userId
         };
 
@@ -116,6 +122,7 @@ class Role extends React.Component {
         const role = {
             id: this.state.id,
             name: this.state.name,
+            description: this.state.description,
             userId: this.state.userId
         }
 
@@ -145,6 +152,7 @@ class Role extends React.Component {
                         handleChange={this.handleChange}
                         onCreateRole={this.onCreateRole}
                         onUpdateRole={this.onUpdateRole}
+                        onCancel={this.onCancel}
                     />
                 }
 
