@@ -3,7 +3,6 @@ import axios from 'axios'
 
 import ArrowForm from './ArrowForm'
 import ArrowList from './ArrowList'
-import Axios from 'axios';
 
 
 class Arrow extends React.Component {
