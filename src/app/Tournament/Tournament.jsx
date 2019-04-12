@@ -9,78 +9,68 @@ class Tournament extends React.Component {
         super(props);
         this.state = {
             id: '',
-            nama: '',
-            lokasi: '',
-            alamat: '',
-            tanggal_mulai: '',
-            tanggal_berakhir: '',
-            tournaments: [],
-            modal: false,
-            mode: 'add'
-        }
+            name: '',
+            address: '',
+            start_date: '',
+            end_date: '',
 
-        this.toggle = this.toggle.bind(this)
-        this.handleChange = this.handleChange.bind(this)
-        this.resetForm = this.resetForm.bind(this)
-        this.selectData = this.selectData.bind(this)
-        this.addTournament = this.addTournament.bind(this)
-        this.updateTournament = this.updateTournament.bind(this)
-        this.deleteTournament = this.deleteTournament.bind(this)
-        this.listAllTournament = this.listAllTournament.bind(this)
-        this.onCreateTournament = this.onCreateTournament.bind(this)
-        this.onUpdateTournament = this.onUpdateTournament.bind(this)
-        this.onDeleteTournament = this.onDeleteTournament.bind(this)
+            tournaments: [],
+            mode: 'add',
+            showTournamentForm: false
+        }
     }
 
     componentDidMount() {
         this.listAllTournament()
     }
 
-    toggle() {
+    toggleTournamentForm = () => {
         this.setState({
-            modal: !this.state.modal
+            showTournamentForm: !this.state.showTournamentForm
         });
     }
 
-    handleChange(event) {
+    handleChange = (event) => {
         this.setState({
             [event.target.name]: event.target.value
         })
     }
 
-    resetForm() {
+    resetForm =() => {
         this.setState({
             id: '',
-            nama: '',
-            lokasi: '',
-            alamat: '',
-            tanggal_mulai: '',
-            tanggal_berakhir: '',
+            name: '',
+            address: '',
+            start_date: '',
+            end_date: '',
         })
     }
 
-    selectData(tournament) {
+    onCancel = () => {
+        this.resetForm()
+        this.toggleTournamentForm()
+    }
+
+    selectTournament = (tournament) => {
         this.setState({
             id: tournament.id,
-            nama: tournament.nama,
-            lokasi: tournament.lokasi,
-            alamat: tournament.alamat,
-            tanggal_mulai: tournament.tanggal_mulai,
-            tanggal_berakhir: tournament.tanggal_berakhir,
+            name: tournament.name,
+            address: tournament.address,
+            start_date: tournament.start_date,
+            end_date: tournament.end_date,
             mode: 'update'
         })
         
-        this.toggle()
+        this.toggleTournamentForm()
     }
 
-    addTournament(tournament) {
+    addTournament = (tournament) => {
         const { tournaments } = this.state
-
         tournaments.push(tournament)
         this.setState({ tournaments })
     }
 
-    updateTournament(tournament) {
+    updateTournament = (tournament) => {
         const { tournaments } = this.state
         let index = tournaments.findIndex((data) => data.id === tournament.id)
         tournaments[index] = tournament
@@ -91,92 +81,86 @@ class Tournament extends React.Component {
         })
     }
 
-    deleteTournament(id) {
+    deleteTournament = (id) => {
         const { tournaments } = this.state
         let temp = tournaments.filter(data => data.id !== id)
-
         this.setState({ tournaments: temp })
     }
 
-    listAllTournament() {
-        var URL = "http://localhost:3002/setup"
-
-        axios.get(URL)
-            .then((response) => {
+    listAllTournament = () => {
+        axios.get('http://localhost:3333/tournament')
+            .then((res) => {
                 this.setState({
-                    tournaments: response.data.data
+                    tournaments: res.data.data
                 })
             })
     }
 
-    onCreateTournament(event) {
+    onCreateTournament = (event) => {
         event.preventDefault()
-        const URL = "http://localhost:3002/setup/create"
 
         const tournament = {
             id: this.state.id,
-            nama: this.state.nama,
-            lokasi: this.state.lokasi,
-            alamat: this.state.alamat,
-            tanggal_mulai: this.state.tanggal_mulai,
-            tanggal_berakhir: this.state.tanggal_berakhir,
+            name: this.state.name,
+            address: this.state.address,
+            start_date: this.state.start_date,
+            end_date: this.state.end_date,
         }
 
-        axios.post(URL, tournament)
-            .then(response => response.data)
-            .then(response => this.addTournament(response.data))
+        axios.post('http://localhost:3333/tournament/create', tournament)
+            .then(res => res.data)
+            .then(res => this.addTournament(res.data))
         
         this.resetForm()
-        this.toggle()
+        this.toggleTournamentForm()
     }
 
-    onUpdateTournament(event) {
+    onUpdateTournament = (event) => {
         event.preventDefault()
-        const URL = "http://localhost:3002/setup/update"
 
         const tournament = {
             id: this.state.id,
-            nama: this.state.nama,
-            lokasi: this.state.lokasi,
-            alamat: this.state.alamat,
-            tanggal_mulai: this.state.tanggal_mulai,
-            tanggal_berakhir: this.state.tanggal_berakhir,
+            name: this.state.name,
+            address: this.state.address,
+            start_date: this.state.start_date,
+            end_date: this.state.end_date,
         }
 
-        axios.post(URL, tournament)
-            .then(response => response.data)
-            .then(response => this.updateTournament(response.data))
+        axios.post('http://localhost:3333/tournament/update', tournament)
+            .then(res => res.data)
+            .then(res => this.updateTournament(res.data))
 
         this.resetForm()
-        this.toggle()
+        this.toggleTournamentForm()
     }
 
-    onDeleteTournament(id) {
-        const URL = `http://localhost:3002/setup/delete/${id}`
-
-        axios.get(URL)
-            .then(response => response.data)
-            .then(response => this.deleteTournament(id))
+    onDeleteTournament = (id) => {
+        axios.get(`http://localhost:3002/setup/delete/${id}`)
+            .then(res => res.data)
+            .then(res => this.deleteTournament(id))
     }
 
     render() {
         return(
             <div>
-                <TournamentForm 
-                    dataState={this.state}
-                    modalToggle={this.toggle}
-                    handleChange={this.handleChange}
-                    onCreateTournament={this.onCreateTournament}
-                    onUpdateTournament={this.onUpdateTournament}
-                    >
-                </TournamentForm>
+                {this.state.showTournamentForm &&
+                    <TournamentForm 
+                        dataState={this.state}
+                        toggleTournamentForm={this.toggleTournamentForm}
+                        handleChange={this.handleChange}
+                        onCreateTournament={this.onCreateTournament}
+                        onUpdateTournament={this.onUpdateTournament}
+                    />
+                }
 
-                <TournamentList 
-                    dataState={this.state}
-                    modalToggle={this.toggle}
-                    selectTournament={this.selectData}
-                    onDeleteTournament={this.onDeleteTournament}
-                ></TournamentList>
+                {!this.state.showTournamentForm &&
+                    <TournamentList 
+                        dataState={this.state}
+                        toggleTournamentForm={this.toggleTournamentForm}
+                        selectTournament={this.selectTournament}
+                        onDeleteTournament={this.onDeleteTournament}
+                    />
+                }
             </div>
         )
     }
