@@ -1,8 +1,10 @@
 import React from 'react'
-import { Container, Jumbotron, Button } from 'reactstrap'
+import { Container, Button, Card, Row, Col } from 'reactstrap'
 
-import './style/homepage.scss'
+import './homepage.scss'
 import Navbar from '../../components/Navbar/Navbar'
+import JumbotronComponent from '../../components/Jumbotron/Jumbotron'
+import FooterComponent from '../../components/Footer/Footer'
 
 
 class FrontPage extends React.Component {
@@ -11,26 +13,64 @@ class FrontPage extends React.Component {
         return (
             <div>
                 <Navbar />
+                <JumbotronComponent />                
 
-                <Jumbotron fluid>
-                    <Container fluid>
-                        <div align='center'>
-                            <h1 className='display-5'><b>Made Your Archery Torunament Be Easy</b></h1>
-                            <h4>This is a simple hero unit, a simple Jumbotron-style component for calling extra attention to featured content or information.</h4>
-                            <hr/>
-                            <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-                            <br/>
-                            <Button color='primary' className='btn-create-tournament'><b>Create Your Tournament</b></Button>
-                        </div>
-                    </Container>
-                </Jumbotron>
-
-                <section>
+                <section className='top-rank-section'>
                     <Container>
-                        <h1>Hello World</h1>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magnam unde voluptate eius maiores aut consectetur sunt culpa earum, quam ad veniam enim provident quia, neque optio doloribus dolores corporis totam?</p>
+                        <h1>Top Rank</h1>
+                        <hr/>
+                        <Row>
+                            <Col>
+                                <Card className='top-rank'>
+                                    <p>We aim to keep things simple, but there's plenty more to explore,including bracket predictions, voting, and themeable brackets for your website.</p>
+                                </Card>
+                            </Col>
+
+                            <Col>
+                                <Card className='top-rank'>
+                                    <p>We aim to keep things simple, but there's plenty more to explore,including bracket predictions, voting, and themeable brackets for your website.</p>
+                                </Card>
+                            </Col>
+
+                            <Col>
+                                <Card className='top-rank'>
+                                    <p>We aim to keep things simple, but there's plenty more to explore,including bracket predictions, voting, and themeable brackets for your website.</p>
+                                </Card>
+                            </Col>
+
+                            <Col>
+                                <Card className='top-rank'>
+                                    <p>We aim to keep things simple, but there's plenty more to explore,including bracket predictions, voting, and themeable brackets for your website.</p>
+                                </Card>
+                            </Col>
+                        </Row>
                     </Container>
                 </section>
+
+                <section className='community-section'>
+                    <div>
+                        <Row>
+                            <Col>
+
+                            </Col>
+
+                            <Col>
+                                <h3>Archery Community</h3>
+                                <p>Effortlessly host multiple tournaments, leagues and events for your loyal members.</p>
+                            </Col>
+                        </Row>
+                    </div>
+                </section>
+
+                <section className='sign-up-free-section'>
+                    <div align='center'>
+                        <h3><b>Providing the right tools for the gaming community</b></h3>
+                        <p>We aim to keep things simple, but there's plenty more to explore,including bracket predictions, voting, and themeable brackets for your website.</p>
+                        <Button className='btn-signup-free' color='success'><b>Sign Up Free</b></Button>
+                    </div>
+                </section>
+
+                <FooterComponent />
             </div>
         )
     }
