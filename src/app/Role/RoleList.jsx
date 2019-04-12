@@ -31,6 +31,7 @@ class RoleList extends React.Component {
                             <tr>
                                 <th style={{width: 20}}>#</th>
                                 <th style={{width: 100}}>Name</th>
+                                <th style={{width: 100}}>Description</th>
                                 <th style={{width: 100}}>User</th>
                                 <th style={{width: 50}}>Action</th>
                             </tr>
@@ -44,6 +45,7 @@ class RoleList extends React.Component {
                                         <tr key={i}>
                                             <td>{i+1}</td>
                                             <td>{role.name}</td>
+                                            <td>{role.description}</td>
                                             <td>{role.userId}</td>
                                             <td>
                                                 <Button color="warning" size="sm" onClick={this.props.selectRole.bind(this, role)}>
