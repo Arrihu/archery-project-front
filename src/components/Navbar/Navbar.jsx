@@ -35,11 +35,11 @@ class NavbarView extends React.Component {
 
                             <span className='menu-sign-up-space'></span>
                             <NavItem>
-                                <NavLink href='/components'><b>Login</b></NavLink>
+                                <NavLink href='http://localhost:3000/#/login'><b>Login</b></NavLink>
                             </NavItem>
 
                             <NavItem>
-                                <NavLink href='/components'><b>Sign Up</b></NavLink>
+                                <NavLink href='http://localhost:3000/#/register'><b>Sign Up</b></NavLink>
                             </NavItem>
                         </Nav>
                     </Collapse>
