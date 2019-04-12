@@ -1,69 +1,122 @@
-import React from 'react';
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import React from 'react'
+import { Button, Card, CardHeader, CardBody } from 'reactstrap'
+
+import './style/tournament.scss'
 
 
 class TournamentForm extends React.Component {
 
     render() {
-        const { nama, lokasi, alamat, tanggal_mulai, tanggal_berakhir, modal, mode } = this.props.dataState
+        const { name, address, start_date, end_date, mode } = this.props.dataState
 
         return(
             <div>                
-                <Modal isOpen={modal} toggle={this.props.modalToggle}>
-                    <ModalHeader toggle={this.props.modalToggle}>Tournamnet</ModalHeader>
-
-                    <ModalBody>
-                        <form onSubmit={mode === 'update' ? this.props.onUpdateTournament : this.props.onCreateTournament}>
-                            <div className="form-group">
-                                <label>Nama</label>
-                                <input name="nama" type="text" className="form-control"
-                                value={nama} onChange={this.props.handleChange}
-                                >
-                                </input>
+                <h4><b>Setup your tournament</b></h4> <br />
+                <Card>
+                    <CardHeader><b>Basic Info</b></CardHeader>
+                    <CardBody>
+                        <form>
+                            <div class="form-group row">
+                                <label for="tournamentName" class="col-sm-2 col-form-label">Tournament name</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="tournamentName" />
+                                </div>
                             </div>
 
-                            <div className="form-group">
-                                <label>Lokasi</label>
-                                <input name="lokasi" type="text" className="form-control"
-                                value={lokasi} onChange={this.props.handleChange}
-                                >
-                                </input>
+                            <div class="form-group row">
+                                <label for="address" class="col-sm-2 col-form-label">Address</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="address" />
+                                </div>
                             </div>
 
-                            <div className="form-group">
-                                <label>Alamat</label>
-                                <input name="alamat" type="text" className="form-control"
-                                value={alamat} onChange={this.props.handleChange}
-                                >
-                                </input>
+                            <div class="form-group row">
+                                <label for="start_date" class="col-sm-2 col-form-label">Start date</label>
+                                <div class="col-sm-10">
+                                    <input type="password" class="form-control" id="start_date" />
+                                </div>
                             </div>
 
-                            <div className="form-group">
-                                <label>Tanggal Mulai</label>
-                                <input name="tanggal_mulai" type="text" className="form-control"
-                                value={tanggal_mulai} onChange={this.props.handleChange}
-                                >
-                                </input>
-                            </div>
-
-                            <div className="form-group">
-                                <label>Tanggal Berakhir</label>
-                                <input name="tanggal_berakhir" type="text" className="form-control"
-                                value={tanggal_berakhir} onChange={this.props.handleChange}
-                                >
-                                </input>
+                            <div class="form-group row">
+                                <label for="end_date" class="col-sm-2 col-form-label">End date</label>
+                                <div class="col-sm-10">
+                                    <input type="password" class="form-control" id="end_date" />
+                                </div>
                             </div>
                         </form>
-                    </ModalBody>
+                    </CardBody>
+                </Card>
 
-                    <ModalFooter>
-                        <Button color="success" onClick={mode === 'update' 
-                        ? this.props.onUpdateTournament 
-                        : this.props.onCreateTournament}>Save</Button>
+                <br />
+                <hr></hr>
+                <br />
 
-                        <Button color="secondary" onClick={this.props.modalToggle}>Cancel</Button>
-                    </ModalFooter>
-                </Modal>
+                <Card>
+                    <CardHeader><b>Game</b></CardHeader>
+                    <CardBody>
+                        <form>
+                            <div class="form-group row">
+                                <label for="type" class="col-sm-2 col-form-label">Type</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="type" />
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="format" class="col-sm-2 col-form-label">Format</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="format" />
+                                </div>
+                            </div>
+                        </form>
+                    </CardBody>
+                </Card>
+
+                <br />
+                <hr></hr>
+                <br />
+
+                <Card>
+                    <CardHeader><b>Registration</b></CardHeader>
+                    <CardBody>
+                        <form>
+                            <div class="form-group row">
+                                <label for="tournamentName" class="col-sm-2 col-form-label">Tournament name</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="tournamentName" />
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="address" class="col-sm-2 col-form-label">Address</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="address" />
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="start_date" class="col-sm-2 col-form-label">Start date</label>
+                                <div class="col-sm-10">
+                                    <input type="password" class="form-control" id="start_date" />
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="end_date" class="col-sm-2 col-form-label">End date</label>
+                                <div class="col-sm-10">
+                                    <input type="password" class="form-control" id="end_date" />
+                                </div>
+                            </div>
+                        </form>
+                    </CardBody>
+                </Card>
+
+                <div align="right">
+                    <Button color="primary"><b>Save Changes</b></Button>
+                    <span className='btn-action-form-tournament-space'></span>
+                    <Button><b>Cancel</b></Button>
+                </div>
+                <br/>
             </div>
         )
     }
