@@ -2,7 +2,7 @@ import React from 'react'
 import { Navbar, NavbarBrand, Collapse, Nav, NavItem, NavLink, NavbarToggler } from 'reactstrap'
 
 
-class NavbarView extends React.Component {
+class NavbarComponent extends React.Component {
 
     constructor(props) {
         super(props)
@@ -49,4 +49,4 @@ class NavbarView extends React.Component {
     }
 }
 
-export default NavbarView
+export default NavbarComponent
