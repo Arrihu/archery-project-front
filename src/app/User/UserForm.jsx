@@ -56,7 +56,7 @@ class UserForm extends React.Component {
                     onClick={mode === "update" ? this.props.onUpdateUser : this.props.onCreateUser}
                     >Save</Button>
                     <span className='user-btn-space'></span>
-                    <Button color="secondary" onClick={this.props.toggleUserForm}>Cancel</Button>
+                    <Button color="secondary" onClick={this.props.onCancel}>Cancel</Button>
                 </Card>
             </div>
         )
