@@ -1,5 +1,7 @@
 import React from 'react'
-import { Table, Button } from 'reactstrap'
+import { Table, Button, Card, Row, Col } from 'reactstrap'
+
+import './style/eventorganizer.scss'
 
 
  class EventOrganizerList extends React.Component {
@@ -9,25 +11,27 @@ import { Table, Button } from 'reactstrap'
 
     return (
         <div>
-            <div className="row">
-                <div className="col-sm-6">
-                    <h5>Event Organizer List Data</h5>
-                </div>
+            <Card>
+                <Row>
+                    <Col>
+                        <div className="eo-list-title">
+                            <h4><b>Event Organizer List Data</b></h4>
+                        </div>
+                    </Col>
 
-                <div className="col-sm-6" align="right">
-                    <Button color="primary" onClick={this.props.modalToggle}>
-                        <i className="cui-cursor" /> Add Event Organizer
-                    </Button>
-                </div>
-            </div>
-        
-            <br />
+                    <Col>
+                        <div className="btn-add-eo" align="right">
+                            <Button color="primary" onClick={this.props.toggleEventOrganizerForm}>
+                                <i className="cui-cursor" /> <b>Add Event Organizer</b>
+                            </Button>
+                        </div>
+                    </Col>
+                </Row>
 
-            <div className="card">
                 <Table>
                     <thead>
                         <tr>
-                            <th>No</th>
+                            <th>#</th>
                             <th>Position</th>
                             <th>Description</th>
                             <th>Action</th>
@@ -62,7 +66,7 @@ import { Table, Button } from 'reactstrap'
                         }
                     </tbody>
                 </Table>
-            </div>
+            </Card>
         </div>
     )
   }
