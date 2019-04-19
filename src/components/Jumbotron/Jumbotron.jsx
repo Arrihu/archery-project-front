@@ -1,6 +1,8 @@
 import React from 'react'
 import { Jumbotron, Container, Button } from 'reactstrap'
 
+import './jumbotron.scss'
+
 
 class JumbotronComponent extends React.Component {
 
@@ -15,7 +17,7 @@ class JumbotronComponent extends React.Component {
                             <hr/>
                             <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
                             <br/>
-                            <Button color='primary' className='btn-create-tournament'><b>Create Your Tournament</b></Button>
+                            <a style={{textDecoration: 'none'}} className='btn-create-your-tournament' href="http://localhost:3000/#/tournament"><b>Create Your Tournament</b></a>
                         </div>
                     </Container>
                 </Jumbotron>
