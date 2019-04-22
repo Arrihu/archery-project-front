@@ -135,7 +135,7 @@ class Tournament extends React.Component {
     }
 
     onDeleteTournament = (id) => {
-        axios.get(`http://localhost:3002/setup/delete/${id}`)
+        axios.get(`http://localhost:3333/tournament/delete/${id}`)
             .then(res => res.data)
             .then(res => this.deleteTournament(id))
     }
@@ -150,6 +150,7 @@ class Tournament extends React.Component {
                         handleChange={this.handleChange}
                         onCreateTournament={this.onCreateTournament}
                         onUpdateTournament={this.onUpdateTournament}
+                        onCancel={this.onCancel}
                     />
                 }
 
