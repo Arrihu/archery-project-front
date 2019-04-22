@@ -15,106 +15,41 @@ class TournamentForm extends React.Component {
                 <Card>
                     <CardHeader><b>Basic Info</b></CardHeader>
                     <CardBody>
-                        <form>
+                        <form onSubmit={this.props.onCreateTournament}>
                             <div class="form-group row">
                                 <label for="tournamentName" class="col-sm-2 col-form-label">Tournament name</label>
                                 <div class="col-sm-10">
-                                    <input type="text" name='name' value={name} onChange={this.props.handleChange} class="form-control" id="tournamentName" />
+                                    <input type="text" name='name' value={name} onChange={this.props.handleChange} class="form-control" id="tournamentName" placeholder='Tournament name' />
                                 </div>
                             </div>
 
                             <div class="form-group row">
                                 <label for="address" class="col-sm-2 col-form-label">Address</label>
                                 <div class="col-sm-10">
-                                    <input type="text" name='address' value={address} onChange={this.props.handleChange} class="form-control" id="address" />
+                                    <input type="text" name='address' value={address} onChange={this.props.handleChange} class="form-control" id="address" placeholder='Address' />
                                 </div>
                             </div>
 
                             <div class="form-group row">
                                 <label for="start_date" class="col-sm-2 col-form-label">Start date</label>
                                 <div class="col-sm-10">
-                                    <input type="password" name='start_date' value={start_date} onChange={this.props.handleChange} class="form-control" id="start_date" />
+                                    <input type="date" name='start_date' value={start_date} onChange={this.props.handleChange} class="form-control" id="start_date" placeholder='Start date' />
                                 </div>
                             </div>
 
                             <div class="form-group row">
                                 <label for="end_date" class="col-sm-2 col-form-label">End date</label>
                                 <div class="col-sm-10">
-                                    <input type="password" name='end_date' value={end_date} onChange={this.props.handleChange} class="form-control" id="end_date" />
+                                    <input type="date" name='end_date' value={end_date} onChange={this.props.handleChange} class="form-control" id="end_date" placeholder='End date' />
                                 </div>
                             </div>
                         </form>
                     </CardBody>
                 </Card>
-
-                <br />
-                <hr></hr>
-                <br />
-
-                <Card>
-                    <CardHeader><b>Game</b></CardHeader>
-                    <CardBody>
-                        <form>
-                            <div class="form-group row">
-                                <label for="type" class="col-sm-2 col-form-label">Type</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="type" />
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <label for="format" class="col-sm-2 col-form-label">Format</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="format" />
-                                </div>
-                            </div>
-                        </form>
-                    </CardBody>
-                </Card>
-
-                <br />
-                <hr></hr>
-                <br />
-
-                <Card>
-                    <CardHeader><b>Registration</b></CardHeader>
-                    <CardBody>
-                        <form>
-                            <div class="form-group row">
-                                <label for="tournamentName" class="col-sm-2 col-form-label">Tournament name</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="tournamentName" />
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <label for="address" class="col-sm-2 col-form-label">Address</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="address" />
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <label for="start_date" class="col-sm-2 col-form-label">Start date</label>
-                                <div class="col-sm-10">
-                                    <input type="password" class="form-control" id="start_date" />
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <label for="end_date" class="col-sm-2 col-form-label">End date</label>
-                                <div class="col-sm-10">
-                                    <input type="password" class="form-control" id="end_date" />
-                                </div>
-                            </div>
-                        </form>
-                    </CardBody>
-                </Card>
-
                 <div align="right">
-                    <Button color="primary"><b>Save Changes</b></Button>
+                    <Button color="primary" onClick={this.props.onCreateTournament}><b>Save Changes</b></Button>
                     <span className='btn-action-form-tournament-space'></span>
-                    <Button><b>Cancel</b></Button>
+                    <Button onClick={this.props.onCancel}><b>Cancel</b></Button>
                 </div>
                 <br/>
             </div>
