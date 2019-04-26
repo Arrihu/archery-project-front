@@ -1,5 +1,8 @@
 import React from 'react'
-import { Table, Button, Card, Row, Col } from 'reactstrap'
+import { Table, Button, Card } from 'reactstrap'
+
+import TargetListHeader from './components/TargetListHeader'
+import Pagination from '../../components/Pagination/Pagination'
 
 
 class TargetList extends React.Component {
@@ -10,22 +13,9 @@ class TargetList extends React.Component {
         return (
             <div>
                 <Card >
-                    <Row>
-                        <Col>
-                            <div className='target-list-title'>
-                                <h3><b>Target List Data</b></h3>
-                            </div>
-                        </Col>
-                        <Col>
-                            <div className='btn-target-list-add' align='right'>
-                                <Button color='primary' onClick={this.props.toggleTargetForm}>
-                                    <i className='cui-cursor'></i> <b>Add Target</b>
-                                </Button>
-                            </div>
-                        </Col>
-                    </Row>
+                    <TargetListHeader />
 
-                    <Table>
+                    <Table hover>
                         <thead>
                             <tr>
                                 <th>#</th>
@@ -45,10 +35,14 @@ class TargetList extends React.Component {
                                             <td>{target.name}</td>
                                             <td>{target.size}</td>
                                             <td>
+                                                <Button color='success' size='sm'>
+                                                    <i className='cui-magnifying-glass'></i>
+                                                </Button>
+                                                <span></span>
                                                 <Button color='warning' size='sm' onClick={this.props.onSelectTarget.bind(this, target)}>
                                                     <i className='cui-note'></i>
                                                 </Button>
-                                                <span className='btn-list-action'></span>
+                                                <span></span>
                                                 <Button color='danger' size='sm' onClick={this.props.onDeleteTarget.bind(this, target.id)}>
                                                     <i className='cui-trash'></i>
                                                 </Button>
@@ -59,6 +53,10 @@ class TargetList extends React.Component {
                             }
                         </tbody>
                     </Table>
+
+                    <br />
+                    <br />
+                    <Pagination />
                 </Card>
             </div>
         )
