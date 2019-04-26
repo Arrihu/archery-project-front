@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button, Card, Row, Col } from 'reactstrap'
 
-import './style/eventorganizer.scss'
+import './scss/eventorganizer.scss'
 
 
 class EventOrganizerForm extends React.Component {
