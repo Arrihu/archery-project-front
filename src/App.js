@@ -14,6 +14,8 @@ const DefaultLayout = Loadable({
 
 // pages
 const HomePage = React.lazy(() => import('./app/HomePage/HomePage'))
+const Login = React.lazy(() => import('./components/Login/Login'));
+const Register = React.lazy(() => import('./components/Register/Register'));
 
 
 class App extends Component {
@@ -23,8 +25,10 @@ class App extends Component {
       <HashRouter>
         <React.Suspense fallback={loading()}>
           <Switch>
-            <Route exact path="/home" name="Home Page" render={props => <HomePage {...props}/>} />
-            <Route path="/" name="Home" component={DefaultLayout} />
+            <Route exact path="/login" name="Login Page" render={props => <Login {...props}/>} />
+            <Route exact path="/register" name="Register Page" render={props => <Register {...props}/>} />
+            <Route exact path="/homepage" name="Home Page" render={props => <HomePage {...props}/>} />
+            <Route path="/" name="Dashboard" component={DefaultLayout} />
           </Switch>
         </React.Suspense>
       </HashRouter>
