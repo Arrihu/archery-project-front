@@ -1,7 +1,9 @@
 import React from 'react'
-import { Button, Table, Card, Row, Col } from 'reactstrap';
+import { Button, Table, Card } from 'reactstrap';
 
-import './style/user.scss'
+import UserListHeader from './components/UserListHeader'
+import Pagination from '../../components/Pagination/Pagination'
+import './scss/user.scss'
 
 
 class UserList extends React.Component {
@@ -12,22 +14,9 @@ class UserList extends React.Component {
         return(
             <div>
                 <Card>
-                    <Row>
-                        <Col>
-                            <div className='data-title'>
-                                <h4><b>List User Data</b></h4>
-                            </div>
-                        </Col>
-                        <Col>
-                            <div className='btn-add-user' align='right'>
-                                <Button onClick={this.props.toggleUserForm} color='primary'>
-                                    <i className='cui-cursor'></i> <b>Add User</b>
-                                </Button>
-                            </div>
-                        </Col>
-                    </Row>
+                    <UserListHeader />
 
-                    <Table>
+                    <Table hover>
                         <thead>
                             <tr>
                                 <th style={{width: 30}}>#</th>
@@ -51,12 +40,14 @@ class UserList extends React.Component {
                                             <td>{user.username}</td>
                                             <td>{user.password}</td>
                                             <td>
+                                                <Button color='success' size='sm'>
+                                                    <i className='cui-magnifying-glass'></i>
+                                                </Button>
+                                                <span></span>
                                                 <Button color='warning' size='sm' onClick={this.props.selectUser.bind(this, user)}>
                                                     <i className="cui-note" />
                                                 </Button>
-
-                                                <span style={{paddingLeft: 10}}></span>
-
+                                                <span></span>
                                                 <Button className="btn btn-danger btn-sm" 
                                                     onClick={this.props.onDeleteUser.bind(this, user.id)}>
                                                     <i className="cui-trash" />
@@ -69,6 +60,10 @@ class UserList extends React.Component {
                             }
                         </tbody>
                     </Table>
+
+                    <br />
+                    <br />
+                    <Pagination />
                 </Card>
             </div>
         )
