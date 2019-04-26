@@ -3,11 +3,7 @@ export default {
     {
       name: 'Dashboard',
       url: '/dashboard',
-      icon: 'icon-speedometer',
-      badge: {
-        variant: 'info',
-        text: 'NEW',
-      },
+      icon: 'icon-speedometer'
     },
     {
       name: 'Tournament',
@@ -34,8 +30,18 @@ export default {
           icon: 'icon-shield'
         },
         {
+          name: 'Target',
+          url: '/data-master/target',
+          icon: 'icon-shield'
+        },
+        {
           name: 'Event Organizer',
           url: '/data-master/event_organizer',
+          icon: 'icon-shield'
+        },
+        {
+          name: 'Archer',
+          url: '/data-master/archer',
           icon: 'icon-shield'
         }
       ]
@@ -48,12 +54,7 @@ export default {
     {
       name: 'Role',
       url: '/role',
-      icon: 'icon-user'      
-    },
-    {
-      name: 'Front Page',
-      url: '/home',
-      icon: 'icon-star'
+      icon: 'icon-lock'      
     }
   ]
 };
