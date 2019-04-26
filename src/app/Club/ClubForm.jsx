@@ -1,7 +1,7 @@
 import React from 'react'
-import { Button, Card, Row, Col } from 'reactstrap'
+import { Button, Card, CardTitle, Row, Col } from 'reactstrap'
 
-import './style/club.scss'
+import './scss/club.scss'
 
 
 class ClubForm extends React.Component {
@@ -12,9 +12,10 @@ class ClubForm extends React.Component {
         return (
             <div>
                 <Card className='club-form-card'>
-                    {/* title */}
-                    <h5><b>Club Data Form</b></h5>
-                    {/* club form */}
+                    <CardTitle className='mb-0'><h5><b>Clubs</b></h5></CardTitle>
+                    <div className='small text-muted'>Please fill the blank club data form !</div>
+
+                    <br />
                     <form onSubmit={mode === 'update' ? this.props.onUpdateClub : this.props.onCreateClub}>
                         <Row>
                             <Col>
@@ -33,7 +34,6 @@ class ClubForm extends React.Component {
                         </Row>
                     </form>
 
-                    {/* action button */}
                     <Button color="primary" type='submit' onClick={mode === 'update' ? this.props.onUpdateClub : this.props.onCreateClub}>Save</Button>
 
                     <span className='btn-space-club'></span>
