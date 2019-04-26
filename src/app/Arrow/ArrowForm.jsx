@@ -1,7 +1,7 @@
 import React from 'react'
-import { Card, Button, Row, Col } from 'reactstrap'
+import { Card, CardTitle, Button, Row, Col } from 'reactstrap'
 
-import './style/arrow.scss'
+import './scss/arrow.scss'
 
 
 class ArrowForm extends React.Component {
@@ -11,10 +11,11 @@ class ArrowForm extends React.Component {
 
         return (
             <div>
-                <Card className='form-card'>
-                    {/* title */}
-                    <h5><strong>Arrow Data</strong></h5>
-                    {/* arrow form */}
+                <Card className='arrow-form-card'>
+                    <CardTitle className='mb-0'><h5><b>Arrows</b></h5></CardTitle>
+                    <div className='small text-muted'>Please fill the blank arrow data form !</div>
+
+                    <br />
                     <form onSubmit={mode === 'update' ? this.props.onUpdateArrow : this.props.onCreateArrow}>
                         <Row>
                             <Col>
@@ -47,7 +48,6 @@ class ArrowForm extends React.Component {
                         </Row>
                     </form>
 
-                    {/* button action */}
                     <Button className='btn-save' type='submit' color="primary" onClick={mode === 'update' ? this.props.onUpdateArrow : this.props.onCreateArrow}><b>Save</b></Button>
 
                     <span className='btn-space'></span>
