@@ -1,7 +1,7 @@
 import React from 'react';
-import { Button, Card, Row, Col } from 'reactstrap';
+import { Button, Card, CardTitle, Row, Col } from 'reactstrap';
 
-import './style/user.scss'
+import './scss/user.scss'
 
 
 class UserForm extends React.Component {
@@ -12,9 +12,10 @@ class UserForm extends React.Component {
         return(
             <div>
                 <Card className='user-form-card'>
-                    {/* title */}
-                    <h5><strong>Add User Data</strong></h5>
-                    {/* form */}
+                    <CardTitle className='mb-0'><h5><b>Users</b></h5></CardTitle>
+                    <div className='small text-muted'>Add or edit your user data !</div>
+
+                    <br/>
                     <form onSubmit={mode === "update" ? this.props.onUpdateUser : this.props.onCreateUser}>
                         <Row>
                             <Col>
@@ -51,7 +52,6 @@ class UserForm extends React.Component {
                         </Row>
                     </form>
 
-                    {/* button action */}
                     <Button className='btn-save-user' type="submit" color="primary"
                     onClick={mode === "update" ? this.props.onUpdateUser : this.props.onCreateUser}
                     >Save</Button>
