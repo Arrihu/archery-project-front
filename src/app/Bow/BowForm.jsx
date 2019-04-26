@@ -1,7 +1,7 @@
 import React from 'react'
-import { Button, Card, Row, Col } from 'reactstrap'
+import { Button, Card, CardTitle, Row, Col } from 'reactstrap'
 
-import './style/bow.scss'
+import './scss/bow.scss'
 
 
 class BowForm extends React.Component {
@@ -12,9 +12,10 @@ class BowForm extends React.Component {
         return (
             <div>
                 <Card className='bow-form-card'>
-                    {/* title */}
-                    <h5><b>Bow Data Form</b></h5>
-                    {/* bow form */}
+                    <CardTitle className='mb-0'><h5><b>Bows</b></h5></CardTitle>
+                    <div className='small text-muted'>Please fill the blank bow data form !</div>
+
+                    <br />
                     <form onSubmit={mode === 'update' ? this.props.onUpdateBow : this.props.onCreateBow}>
                         <Row>
                             <Col>
@@ -40,7 +41,6 @@ class BowForm extends React.Component {
                         </Row>
                     </form>
 
-                    {/* action button */}
                     <Button color="primary" onClick={mode === 'update' ? this.props.onUpdateBow : this.props.onCreateBow}>Save</Button>
 
                     <span className='btn-space-bow'></span>
