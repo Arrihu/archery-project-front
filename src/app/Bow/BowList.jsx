@@ -1,7 +1,9 @@
 import React from 'react'
-import { Button, Table, Card, Row, Col } from 'reactstrap'
+import { Button, Table, Card } from 'reactstrap'
 
-import './style/bow.scss'
+import BowListHeader from './components/BowListHeader'
+import Pagination from '../../components/Pagination/Pagination'
+import './scss/bow.scss'
 
 
 class BowList extends React.Component {
@@ -12,23 +14,9 @@ class BowList extends React.Component {
         return (
             <div>
                 <Card>
-                    <Row>
-                        <Col>
-                            <div className="bow-list-title">
-                                <h4><b>Bow List Data</b></h4>
-                            </div>
-                        </Col>
+                    <BowListHeader />
 
-                        <Col>
-                            <div className="btn-add-bow" align="right">
-                                <Button color="primary" onClick={this.props.toggleBowForm}>
-                                    <i className="cui-cursor"></i> <b>Add Bow</b>
-                                </Button>
-                            </div>
-                        </Col>
-                    </Row>
-
-                    <Table>
+                    <Table hover>
                         <thead>
                             <tr>
                                 <th>#</th>
@@ -50,12 +38,14 @@ class BowList extends React.Component {
                                             <td>{bow.length}</td>
                                             <td>{bow.weight}</td>
                                             <td>
+                                                <Button color='success' size='sm'>
+                                                    <i className='cui-magnifying-glass'></i>
+                                                </Button>
+                                                <span></span>
                                                 <Button color="warning" size="sm" onClick={this.props.selectBow.bind(this, bow)}>
                                                     <i className="cui-note"></i>
                                                 </Button>
-
-                                                <span style={{ paddingLeft: 5 }}></span>
-
+                                                <span></span>
                                                 <Button color="danger" size="sm" onClick={this.props.onDeleteBow.bind(this, bow.id)}>
                                                     <i className="cui-trash"></i>
                                                 </Button>
@@ -66,6 +56,10 @@ class BowList extends React.Component {
                             }
                         </tbody>
                     </Table>
+
+                    <br />
+                    <br />
+                    <Pagination />
                 </Card>
             </div>
         )
