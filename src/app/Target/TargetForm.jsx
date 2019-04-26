@@ -1,7 +1,7 @@
 import React from 'react'
-import { Button, Card, Row, Col } from 'reactstrap'
+import { Button, Card, CardTitle, Row, Col } from 'reactstrap'
 
-import './target.scss'
+import './scss/target.scss'
 
 
 class TargetForm extends React.Component {
@@ -12,7 +12,10 @@ class TargetForm extends React.Component {
         return (
             <div>
                 <Card className='target-form-card'>
-                    <h5><b>Target Form</b></h5>
+                    <CardTitle className='mb-0'><h5><b>Targets</b></h5></CardTitle>
+                    <div className='small text-muted'>Please fill the blank target data form !</div>
+
+                    <br />
                     <form onSubmit={mode === 'update' ? this.props.onUpdateTarget : this.props.onCreateTarget}>
                         <Row>
                             <Col>
@@ -30,7 +33,7 @@ class TargetForm extends React.Component {
                             </Col>
                         </Row>
                     </form>
-
+                    
                     <Button color='primary' type='submit' onClick={mode === 'update' ? this.props.onUpdateTarget : this.props.onCreateTarget}><b>Save Changes</b></Button>
                     <span className='btn-form-action'></span>
                     <Button onClick={this.props.onCancel}><b>Cancel</b></Button>
