@@ -62,6 +62,7 @@ class DefaultAside extends Component {
             </NavLink>
           </NavItem>
         </Nav>
+        
         <TabContent activeTab={this.state.activeTab}>
           <TabPane tabId="1">
             <ListGroup className="list-group-accent" tag={'div'}>
