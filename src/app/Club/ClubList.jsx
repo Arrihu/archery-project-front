@@ -1,7 +1,9 @@
 import React from 'react'
-import { Table, Button, Card, Row, Col } from 'reactstrap'
+import { Table, Button, Card } from 'reactstrap'
 
-import './style/club.scss'
+import ClubListHeader from './components/ClubListHeader'
+import Pagination from '../../components/Pagination/Pagination'
+import './scss/club.scss'
 
 
 class ClubList extends React.Component {
@@ -12,23 +14,9 @@ class ClubList extends React.Component {
         return (
             <div>
                 <Card>
-                    <Row>
-                        <Col>
-                            <div className="list-club-title">
-                                <h4><b>List Club Data</b></h4>
-                            </div>
-                        </Col>
+                    <ClubListHeader />
 
-                        <Col>
-                            <div className="btn-add-club" align="right">
-                                <Button color='primary' onClick={this.props.toggleClubForm}>
-                                    <i className='cui-cursor'></i> <b>Add Club</b>
-                                </Button>
-                            </div>
-                        </Col>
-                    </Row>
-
-                    <Table>
+                    <Table hover>
                         <thead>
                             <tr>
                                 <th>#</th>    
@@ -48,10 +36,14 @@ class ClubList extends React.Component {
                                             <td>{club.name}</td>
                                             <td>{club.address}</td>
                                             <td>
+                                                <Button color='success' size='sm'>
+                                                    <i className='cui-magnifying-glass'></i>
+                                                </Button>
+                                                <span></span>
                                                 <Button color='warning' size='sm' onClick={this.props.selectClub.bind(this, club)}>
                                                     <i className='cui-note'></i>
                                                 </Button>
-                                                <span className='btn-action-space'></span>
+                                                <span></span>
                                                 <Button color='danger' size='sm' onClick={this.props.onDeleteClub.bind(this, club.id)}>
                                                     <i className='cui-trash'></i>
                                                 </Button>
@@ -62,6 +54,10 @@ class ClubList extends React.Component {
                             }
                         </tbody>
                     </Table>
+
+                    <br />
+                    <br />
+                    <Pagination />
                 </Card>
             </div>
         )
