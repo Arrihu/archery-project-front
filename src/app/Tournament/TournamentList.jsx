@@ -1,7 +1,9 @@
 import React from 'react'
-import { Table, Button, Card, Row, Col } from 'reactstrap'
+import { Table, Button, Card } from 'reactstrap'
 
-import './style/tournament.scss'
+import TournamentListHeader from './components/TournamentListHeader'
+import Pagination from '../../components/Pagination/Pagination'
+import './scss/tournament.scss'
 
 
 class TournamentList extends React.Component {
@@ -12,22 +14,9 @@ class TournamentList extends React.Component {
         return(
             <div>
                 <Card>
-                    <Row>
-                        <Col>
-                            <div className="tournament-list-title">
-                                <h4><b>List Tournament Data</b></h4>
-                            </div>
-                        </Col>
+                    <TournamentListHeader />
 
-                        <Col>
-                            <div className="btn-add-tournament" align="right">
-                                <Button color='primary' onClick={this.props.toggleTournamentForm}>
-                                    <i className="cui-cursor" /> <b>Add Tournament</b>
-                                </Button>
-                            </div>
-                        </Col>
-                    </Row>
-                    <Table>
+                    <Table hover>
                         <thead>
                             <tr>
                                 <th>#</th>
@@ -51,13 +40,15 @@ class TournamentList extends React.Component {
                                             <td>{tournament.start_date}</td>
                                             <td>{tournament.end_date}</td>
                                             <td>
+                                                <Button color='success' size='sm'>
+                                                    <i className='cui-magnifying-glass'></i>
+                                                </Button>
+                                                <span></span>
                                                 <Button color="warning" size="sm" 
                                                     onClick={this.props.selectTournament.bind(this, tournament)}>
                                                     <i className="cui-note" />
                                                 </Button>
-
-                                                <span className='btn-list-tournament-action'></span>
-
+                                                <span></span>
                                                 <Button color="danger" size="sm" 
                                                     onClick={this.props.onDeleteTournament.bind(this, tournament.id)}>
                                                     <i className="cui-trash" />
@@ -69,6 +60,10 @@ class TournamentList extends React.Component {
                             }
                         </tbody>
                     </Table>
+
+                    <br />
+                    <br />
+                    <Pagination />
                 </Card>
             </div>
         )
