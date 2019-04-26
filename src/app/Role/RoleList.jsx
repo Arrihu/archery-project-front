@@ -1,7 +1,9 @@
 import React from 'react'
-import { Table, Button, Card, Row, Col } from 'reactstrap'
+import { Table, Button, Card } from 'reactstrap'
 
-import './style/role.scss'
+import RoleListHeader from './components/RoleListHeader'
+import Pagination from '../../components/Pagination/Pagination'
+import './scss/role.scss'
 
 class RoleList extends React.Component {
 
@@ -11,22 +13,9 @@ class RoleList extends React.Component {
         return(
             <div>
                 <Card>
-                    <Row>
-                        <Col>
-                            <div className='list-role-title'>
-                                <h4><b>List Role Data</b></h4>
-                            </div>
-                        </Col>
+                    <RoleListHeader />
 
-                        <Col>
-                            <div className='btn-add-role' align='right'>
-                                <Button color='primary' onClick={this.props.toggleRoleForm}>
-                                    <i className='cui-cursor'></i> <b>Add Role</b>
-                                </Button>
-                            </div>
-                        </Col>
-                    </Row>
-                    <Table>
+                    <Table hover>
                         <thead>
                             <tr>
                                 <th style={{width: 20}}>#</th>
@@ -48,12 +37,14 @@ class RoleList extends React.Component {
                                             <td>{role.description}</td>
                                             <td>{role.userId}</td>
                                             <td>
+                                                <Button color='success' size='sm'>
+                                                    <i className='cui-magnifying-glass'></i>
+                                                </Button>
+                                                <span></span>
                                                 <Button color="warning" size="sm" onClick={this.props.selectRole.bind(this, role)}>
                                                     <i className="cui-note" />
                                                 </Button>
-
-                                                <span style={{paddingLeft: 5}}></span>
-
+                                                <span></span>
                                                 <Button color="danger" size="sm" onClick={this.props.onDeleteRole.bind(this, role.id)}>
                                                     <i className="cui-trash" />
                                                 </Button>
@@ -64,6 +55,10 @@ class RoleList extends React.Component {
                             }
                         </tbody>
                     </Table>
+
+                    <br />
+                    <br />
+                    <Pagination />
                 </Card>
             </div>
         )
