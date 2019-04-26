@@ -1,5 +1,8 @@
 import React from 'react'
-import { Table, Button, Card, Row, Col } from 'reactstrap'
+import { Table, Button, Card } from 'reactstrap'
+
+import ArrowListHeader from './components/ArrowListHeader'
+import Pagination from '../../components/Pagination/Pagination'
 
 
 class ArrowList extends React.Component {
@@ -10,23 +13,9 @@ class ArrowList extends React.Component {
         return (
             <div>
                 <Card>
-                    <Row>
-                        <Col>
-                            <div className='list-arrow-title'>
-                                <h4><b>List Arrow Data</b></h4>
-                            </div>
-                        </Col>
+                    <ArrowListHeader />
 
-                        <Col>
-                            <div className='btn-add-arrow' align='right'>
-                                <Button color='primary' onClick={this.props.toggleArrowForm}>
-                                    <i className='cui-cursor'></i> <b>Add Arrow</b>
-                                </Button>
-                            </div>
-                        </Col>
-                    </Row>
-
-                    <Table>
+                    <Table hover>
                         <thead>
                             <tr>
                                 <th>#</th>
@@ -50,12 +39,14 @@ class ArrowList extends React.Component {
                                             <td>{arrow.diameter}</td>
                                             <td>{arrow.spine}</td>
                                             <td>
+                                                <Button color='success' size='sm'>
+                                                    <i className='cui-magnifying-glass'></i>
+                                                </Button>
+                                                <span></span>
                                                 <Button color="warning" size="sm" onClick={this.props.selectArrow.bind(this, arrow)}>
                                                     <i className="cui-note"></i>
                                                 </Button>
-
-                                                <span style={{ paddingLeft: 5 }}></span>
-
+                                                <span></span>
                                                 <Button color="danger" size="sm" onClick={this.props.onDeleteArrow.bind(this, arrow.id)}>
                                                     <i className="cui-trash"></i>
                                                 </Button>
@@ -66,6 +57,10 @@ class ArrowList extends React.Component {
                             }
                         </tbody>
                     </Table>
+
+                    <br />
+                    <br />
+                    <Pagination />
                 </Card>
             </div>
         )
