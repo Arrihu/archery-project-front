@@ -1,7 +1,9 @@
 import React from 'react'
-import { Table, Button, Card, Row, Col } from 'reactstrap'
+import { Table, Button, Card } from 'reactstrap'
 
-import './style/eventorganizer.scss'
+import EventOrganizerListHeader from './components/EventOrganizerListHeader'
+import Pagination from '../../components/Pagination/Pagination'
+import './scss/eventorganizer.scss'
 
 
  class EventOrganizerList extends React.Component {
@@ -12,23 +14,9 @@ import './style/eventorganizer.scss'
     return (
         <div>
             <Card>
-                <Row>
-                    <Col>
-                        <div className="eo-list-title">
-                            <h4><b>Event Organizer List Data</b></h4>
-                        </div>
-                    </Col>
+                <EventOrganizerListHeader />
 
-                    <Col>
-                        <div className="btn-add-eo" align="right">
-                            <Button color="primary" onClick={this.props.toggleEventOrganizerForm}>
-                                <i className="cui-cursor" /> <b>Add Event Organizer</b>
-                            </Button>
-                        </div>
-                    </Col>
-                </Row>
-
-                <Table>
+                <Table hover>
                     <thead>
                         <tr>
                             <th>#</th>
@@ -48,13 +36,15 @@ import './style/eventorganizer.scss'
                                         <td>{eo.position}</td>
                                         <td>{eo.description}</td>
                                         <td>
+                                            <Button color='success' size='sm'>
+                                                <i className='cui-magnifying-glass'></i>
+                                            </Button>
+                                            <span></span>
                                             <Button color="warning" size="sm" 
                                                 onClick={this.props.selectEventOrganizer.bind(this, eo)}>
                                                 <i className="cui-note" size="sm" />
                                             </Button>
-
-                                            <span style={{ paddingLeft: 5 }}></span>
-
+                                            <span></span>
                                             <Button color="danger" size="sm" 
                                                 onClick={this.props.onDeleteEventOrganizer.bind(this, eo.id)}>
                                                 <i className="cui-trash" size="sm" />
@@ -66,6 +56,10 @@ import './style/eventorganizer.scss'
                         }
                     </tbody>
                 </Table>
+
+                <br />
+                <br />
+                <Pagination />
             </Card>
         </div>
     )
