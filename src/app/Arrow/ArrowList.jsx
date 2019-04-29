@@ -1,7 +1,6 @@
 import React from 'react'
-import { Table, Button, Card } from 'reactstrap'
+import { Table, Button, Card, CardTitle, Row, Col } from 'reactstrap'
 
-import ArrowListHeader from './components/ArrowListHeader'
 import Pagination from '../../components/Pagination/Pagination'
 
 
@@ -13,7 +12,25 @@ class ArrowList extends React.Component {
         return (
             <div>
                 <Card>
-                    <ArrowListHeader />
+                    <Row>
+                        <Col>
+                            <div className='arrow-list-title'>
+                                <CardTitle className='mb-0'><h3><b>List of arrows</b></h3></CardTitle>
+                                <div className='small text-muted'>This is list of all arrows data</div>
+
+                                <br />
+                                <Button color='primary' onClick={this.props.toggleArrowForm}>
+                                    <i className='cui-circle-check'></i> <b>Add Arrow</b>
+                                </Button>
+                            </div>
+                        </Col>
+
+                        <Col xs='4'>
+                            <div className='search-arrow' align='right'>
+                                <input type='text' className='form-control' placeholder='Search arrow' />
+                            </div>
+                        </Col>
+                    </Row>
 
                     <Table hover>
                         <thead>

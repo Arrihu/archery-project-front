@@ -1,7 +1,7 @@
 import React from 'react'
 import { Card, CardTitle, Button, Row, Col } from 'reactstrap'
 
-import './scss/arrow.scss'
+import './arrow.scss'
 
 
 class ArrowForm extends React.Component {
