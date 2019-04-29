@@ -4,7 +4,6 @@ import axios from 'axios'
 import UserForm from './UserForm'
 import UserList from './UserList'
 
-
 class User extends React.Component {
 
     constructor(props) {
@@ -172,7 +171,7 @@ class User extends React.Component {
                         selectUser={this.selectUser}
                         onDeleteUser={this.onDeleteUser}
                         toggleUserForm={this.toggleUserForm}
-                    />
+                />
                 }
             </div>
         )

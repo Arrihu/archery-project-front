@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, Card, CardTitle, Row, Col } from 'reactstrap';
 
-import './scss/user.scss'
+import './user.scss'
 
 
 class UserForm extends React.Component {

@@ -1,9 +1,8 @@
 import React from 'react'
-import { Button, Table, Card } from 'reactstrap';
+import { Button, Table, Card, CardTitle, Row, Col } from 'reactstrap';
 
-import UserListHeader from './components/UserListHeader'
 import Pagination from '../../components/Pagination/Pagination'
-import './scss/user.scss'
+import './user.scss'
 
 
 class UserList extends React.Component {
@@ -14,7 +13,25 @@ class UserList extends React.Component {
         return(
             <div>
                 <Card>
-                    <UserListHeader />
+                    <Row>
+                    <Col>
+                        <div className='title-list-user'>
+                            <CardTitle className='mb-0'><h3><b>List of users</b></h3></CardTitle>
+                            <div className='small text-muted'>This is list of all users data</div>
+
+                            <br />
+                            <Button color='primary' onClick={this.props.toggleUserForm}>
+                                <i className='cui-circle-check'></i> <b>Add User</b>
+                            </Button>
+                        </div>
+                    </Col>
+
+                    <Col xs='4'>
+                        <div className='btn-add-user' align='right'>
+                            <input type='text' className='form-control' placeholder='Search user' />
+                        </div>
+                    </Col>
+                </Row>
 
                     <Table hover>
                         <thead>
