@@ -1,9 +1,8 @@
 import React from 'react'
-import { Table, Button, Card } from 'reactstrap'
+import { Table, Button, Card, CardTitle, Row, Col } from 'reactstrap'
 
-import EventOrganizerListHeader from './components/EventOrganizerListHeader'
 import Pagination from '../../components/Pagination/Pagination'
-import './scss/eventorganizer.scss'
+import './eventorganizer.scss'
 
 
  class EventOrganizerList extends React.Component {
@@ -14,7 +13,25 @@ import './scss/eventorganizer.scss'
     return (
         <div>
             <Card>
-                <EventOrganizerListHeader />
+                <Row>
+                    <Col>
+                        <div className='eo-list-title'>
+                            <CardTitle className='mb-0'><h3><b>List of event organizer</b></h3></CardTitle>
+                            <div className='small text-muted'>This is list of all event organizer data</div>
+
+                            <br />
+                            <Button color='primary' onClick={this.props.toggleEventOrganizerForm}>
+                                <i className='cui-circle-check'></i> <b>Add Event Organizer</b>
+                            </Button>
+                        </div>
+                    </Col>
+
+                    <Col xs='4'>
+                        <div className='search-eo' align='right'>
+                            <input type='text' className='form-control' placeholder='Search event organizer' />
+                        </div>
+                    </Col>
+                </Row>
 
                 <Table hover>
                     <thead>

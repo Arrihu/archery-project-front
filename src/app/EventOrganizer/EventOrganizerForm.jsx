@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button, Card, Row, Col } from 'reactstrap'
 
-import './scss/eventorganizer.scss'
+import './eventorganizer.scss'
 
 
 class EventOrganizerForm extends React.Component {
@@ -37,7 +37,7 @@ class EventOrganizerForm extends React.Component {
           </form>
 
           {/* action button */}
-          <Button color="success" onClick={mode === "update" ? this.props.onUpdateEventOrganizer 
+          <Button color="primary" onClick={mode === "update" ? this.props.onUpdateEventOrganizer 
           : this.props.onCreateEventOrganizer}><b>Save</b></Button>
 
           <span className='btn-eo-action-space'></span>
