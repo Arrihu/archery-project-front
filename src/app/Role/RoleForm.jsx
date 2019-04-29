@@ -2,7 +2,7 @@ import React from 'react'
 import { Button, Card, Row, Col } from 'reactstrap'
 
 import UserSelect from '../../components/User/UserSelect'
-import './scss/role.scss'
+import './role.scss'
 
 
 class RoleForm extends React.Component {

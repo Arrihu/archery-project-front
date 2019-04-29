@@ -1,9 +1,8 @@
 import React from 'react'
-import { Table, Button, Card } from 'reactstrap'
+import { Table, Button, Card, CardTitle, Row, Col } from 'reactstrap'
 
-import RoleListHeader from './components/RoleListHeader'
 import Pagination from '../../components/Pagination/Pagination'
-import './scss/role.scss'
+import './role.scss'
 
 class RoleList extends React.Component {
 
@@ -13,7 +12,25 @@ class RoleList extends React.Component {
         return(
             <div>
                 <Card>
-                    <RoleListHeader />
+                    <Row>
+                        <Col>
+                            <div className='list-role-title'>
+                                <CardTitle className='mb-0'><h3><b>List of roles</b></h3></CardTitle>
+                                <div className='small text-muted'>This is list of all roles data</div>
+
+                                <br />
+                                <Button color='primary' onClick={this.props.toggleRoleForm}>
+                                    <i className='cui-circle-check'></i> <b>Add Role</b>
+                                </Button>
+                            </div>
+                        </Col>
+
+                        <Col xs='4'>
+                            <div className='search-role' align='right'>
+                                <input type='text' className='form-control' placeholder='Search role' />
+                            </div>
+                        </Col>
+                    </Row>
 
                     <Table hover>
                         <thead>
