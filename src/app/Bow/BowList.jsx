@@ -1,9 +1,8 @@
 import React from 'react'
-import { Button, Table, Card } from 'reactstrap'
+import { Button, Table, Card, CardTitle, Row, Col } from 'reactstrap'
 
-import BowListHeader from './components/BowListHeader'
 import Pagination from '../../components/Pagination/Pagination'
-import './scss/bow.scss'
+import './bow.scss'
 
 
 class BowList extends React.Component {
@@ -14,7 +13,25 @@ class BowList extends React.Component {
         return (
             <div>
                 <Card>
-                    <BowListHeader />
+                    <Row>
+                        <Col>
+                            <div className='bow-list-title'>
+                                <CardTitle className='mb-0'><h3><b>List of bows</b></h3></CardTitle>
+                                <div className='small text-muted'>This is list of all bows data</div>
+
+                                <br />
+                                <Button color='primary' onClick={this.props.toggleBowForm}>
+                                    <i className='cui-circle-check'></i> <b>Add Bow</b>
+                                </Button>
+                            </div>
+                        </Col>
+
+                        <Col xs='4'>
+                            <div className='search-bow' align='right'>
+                                <input type='text' className='form-control' placeholder='Search bow' />
+                            </div>
+                        </Col>
+                    </Row>
 
                     <Table hover>
                         <thead>

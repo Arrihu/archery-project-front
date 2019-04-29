@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button, Card, CardTitle, Row, Col } from 'reactstrap'
 
-import './scss/bow.scss'
+import './bow.scss'
 
 
 class BowForm extends React.Component {
