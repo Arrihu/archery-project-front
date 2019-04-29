@@ -1,9 +1,8 @@
 import React from 'react'
-import { Table, Button, Card } from 'reactstrap'
+import { Table, Button, Card, CardTitle, Row, Col } from 'reactstrap'
 
-import TournamentListHeader from './components/TournamentListHeader'
 import Pagination from '../../components/Pagination/Pagination'
-import './scss/tournament.scss'
+import './tournament.scss'
 
 
 class TournamentList extends React.Component {
@@ -14,7 +13,25 @@ class TournamentList extends React.Component {
         return(
             <div>
                 <Card>
-                    <TournamentListHeader />
+                    <Row>
+                        <Col>
+                            <div className='tournament-list-title'>
+                                <CardTitle className='mb-0'><h3><b>List of tournaments</b></h3></CardTitle>
+                                <div className='small text-muted'>This is list of all tournaments data</div>
+
+                                <br />
+                                <Button color='primary' onClick={this.props.toggleTournamentForm}>
+                                    <i className='cui-circle-check'></i> <b>Add Tournament</b>
+                                </Button>
+                            </div>
+                        </Col>
+
+                        <Col xs='4'>
+                            <div className='search-tournament' align='right'>
+                                <input type='text' className='form-control' placeholder='Search tournament' />
+                            </div>
+                        </Col>
+                    </Row>
 
                     <Table hover>
                         <thead>

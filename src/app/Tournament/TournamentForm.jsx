@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button, Card, CardTitle, Row, Col } from 'reactstrap'
 
-import './scss/tournament.scss'
+import './tournament.scss'
 
 
 class TournamentForm extends React.Component {
