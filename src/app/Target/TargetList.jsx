@@ -1,8 +1,8 @@
 import React from 'react'
-import { Table, Button, Card } from 'reactstrap'
+import { Table, Button, Card, CardTitle, Row, Col } from 'reactstrap'
 
-import TargetListHeader from './components/TargetListHeader'
 import Pagination from '../../components/Pagination/Pagination'
+import './target.scss'
 
 
 class TargetList extends React.Component {
@@ -12,8 +12,26 @@ class TargetList extends React.Component {
 
         return (
             <div>
-                <Card >
-                    <TargetListHeader />
+                <Card>
+                    <Row>
+                        <Col>
+                            <div className='target-list-title'>
+                                <CardTitle className='mb-0'><h3><b>List of targets</b></h3></CardTitle>
+                                <div className='small text-muted'>This is list of all targets data</div>
+
+                                <br />
+                                <Button color='primary' onClick={this.props.toggleTargetForm}>
+                                    <i className='cui-circle-check'></i> <b>Add Target</b>
+                                </Button>
+                            </div>
+                        </Col>
+
+                        <Col xs='4'>
+                            <div className='search-target' align='right'>
+                                <input type='text' className='form-control' placeholder='Search target' />
+                            </div>
+                        </Col>
+                    </Row>
 
                     <Table hover>
                         <thead>

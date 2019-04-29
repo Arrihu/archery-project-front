@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button, Card, CardTitle, Row, Col } from 'reactstrap'
 
-import './scss/target.scss'
+import './target.scss'
 
 
 class TargetForm extends React.Component {
