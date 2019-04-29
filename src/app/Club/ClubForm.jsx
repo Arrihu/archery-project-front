@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button, Card, CardTitle, Row, Col } from 'reactstrap'
 
-import './scss/club.scss'
+import './club.scss'
 
 
 class ClubForm extends React.Component {

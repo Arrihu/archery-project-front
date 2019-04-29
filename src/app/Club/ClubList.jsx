@@ -1,9 +1,8 @@
 import React from 'react'
-import { Table, Button, Card } from 'reactstrap'
+import { Table, Button, Card, CardTitle, Row, Col } from 'reactstrap'
 
-import ClubListHeader from './components/ClubListHeader'
 import Pagination from '../../components/Pagination/Pagination'
-import './scss/club.scss'
+import './club.scss'
 
 
 class ClubList extends React.Component {
@@ -14,7 +13,25 @@ class ClubList extends React.Component {
         return (
             <div>
                 <Card>
-                    <ClubListHeader />
+                    <Row>
+                        <Col>
+                            <div className='list-club-title'>
+                                <CardTitle className='mb-0'><h3><b>List of clubs</b></h3></CardTitle>
+                                <div className='small text-muted'>This is list of all clubs data</div>
+
+                                <br />
+                                <Button color='primary' onClick={this.props.toggleClubForm}>
+                                    <i className='cui-circle-check'></i> <b>Add Club</b>
+                                </Button>
+                            </div>
+                        </Col>
+
+                        <Col xs='4'>
+                            <div className='search-club' align='right'>
+                                <input type='text' className='form-control' placeholder='Search club' />
+                            </div>
+                        </Col>
+                    </Row>
 
                     <Table hover>
                         <thead>
