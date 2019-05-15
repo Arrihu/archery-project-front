@@ -64,29 +64,6 @@ class Tournament extends React.Component {
         this.toggleTournamentForm()
     }
 
-    addTournament = (tournament) => {
-        const { tournaments } = this.state
-        tournaments.push(tournament)
-        this.setState({ tournaments })
-    }
-
-    updateTournament = (tournament) => {
-        const { tournaments } = this.state
-        let index = tournaments.findIndex((data) => data.id === tournament.id)
-        tournaments[index] = tournament
-        
-        this.setState({
-            tournaments,
-            mode: 'add'
-        })
-    }
-
-    deleteTournament = (id) => {
-        const { tournaments } = this.state
-        let temp = tournaments.filter(data => data.id !== id)
-        this.setState({ tournaments: temp })
-    }
-
     listAllTournament = () => {
         axios.get('http://localhost:3333/tournament')
             .then((res) => {
@@ -94,6 +71,12 @@ class Tournament extends React.Component {
                     tournaments: res.data.data
                 })
             })
+    }
+
+    addTournament = (tournament) => {
+        const { tournaments } = this.state
+        tournaments.push(tournament)
+        this.setState({ tournaments })
     }
 
     onCreateTournament = (event) => {
@@ -107,12 +90,24 @@ class Tournament extends React.Component {
             end_date: this.state.end_date,
         }
 
+        console.log(tournament)
         axios.post('http://localhost:3333/tournament/create', tournament)
             .then(res => res.data)
             .then(res => this.addTournament(res.data))
+
+        // this.resetForm()
+        // this.toggleTournamentForm()
+    }
+
+    updateTournament = (tournament) => {
+        const { tournaments } = this.state
+        let index = tournaments.findIndex((data) => data.id === tournament.id)
+        tournaments[index] = tournament
         
-        this.resetForm()
-        this.toggleTournamentForm()
+        this.setState({
+            tournaments,
+            mode: 'add'
+        })
     }
 
     onUpdateTournament = (event) => {
@@ -132,6 +127,12 @@ class Tournament extends React.Component {
 
         this.resetForm()
         this.toggleTournamentForm()
+    }
+
+    deleteTournament = (id) => {
+        const { tournaments } = this.state
+        let temp = tournaments.filter(data => data.id !== id)
+        this.setState({ tournaments: temp })
     }
 
     onDeleteTournament = (id) => {

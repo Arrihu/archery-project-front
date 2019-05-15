@@ -14,24 +14,24 @@ class UserList extends React.Component {
             <div>
                 <Card>
                     <Row>
-                    <Col>
-                        <div className='title-list-user'>
-                            <CardTitle className='mb-0'><h3><b>List of users</b></h3></CardTitle>
-                            <div className='small text-muted'>This is list of all users data</div>
+                        <Col>
+                            <div className='user-list-title'>
+                                <CardTitle className='mb-0'><h3><b>List of users</b></h3></CardTitle>
+                                <div className='small text-muted'>This is list of all users data</div>
 
-                            <br />
-                            <Button color='primary' onClick={this.props.toggleUserForm}>
-                                <i className='cui-circle-check'></i> <b>Add User</b>
-                            </Button>
-                        </div>
-                    </Col>
+                                <br />
+                                <Button color='primary' onClick={this.props.toggleUserForm}>
+                                    <i className='cui-circle-check'></i> <b>Add User</b>
+                                </Button>
+                            </div>
+                        </Col>
 
-                    <Col xs='4'>
-                        <div className='btn-add-user' align='right'>
-                            <input type='text' className='form-control' placeholder='Search user' />
-                        </div>
-                    </Col>
-                </Row>
+                        <Col xs='4'>
+                            <div className='search-user' align='right'>
+                                <input type='text' className='form-control' placeholder='Search user' />
+                            </div>
+                        </Col>
+                    </Row>
 
                     <Table hover>
                         <thead>

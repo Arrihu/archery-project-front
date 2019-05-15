@@ -3,6 +3,7 @@ import axios from 'axios';
 
 import BowForm from './BowForm'
 import BowList from './BowList'
+import { BowAPI } from '../../api/BowAPI'
 
 
 class Bow extends React.Component {
@@ -22,7 +23,7 @@ class Bow extends React.Component {
     }
 
     componentDidMount() {
-        this.listAllBow()
+        this.listAllBows()
     }
 
     toggleBowForm = () => {
@@ -44,7 +45,7 @@ class Bow extends React.Component {
             length: '',
             weight: ''
         })
-    } 
+    }
 
     cancelAction = () => {
         this.resetForm()
@@ -92,11 +93,11 @@ class Bow extends React.Component {
         })
     }
 
-    listAllBow = () => {
+    listAllBows = () => {
         axios.get('http://localhost:3333/bow')
             .then((result) => {
                 this.setState({
-                    bows: result.data.data
+                    bows: result.data.data,
                 })
             })
     }

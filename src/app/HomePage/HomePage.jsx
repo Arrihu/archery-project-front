@@ -2,9 +2,9 @@ import React from 'react'
 import { Container, Button, Card, Row, Col } from 'reactstrap'
 
 import './homepage.scss'
-import Navbar from '../../components/Navbar/Navbar'
-import JumbotronComponent from '../../components/Jumbotron/Jumbotron'
-import FooterComponent from '../../components/Footer/Footer'
+import Navbar from './Navbar/Navbar'
+import JumbotronComponent from './Jumbotron/Jumbotron'
+import FooterComponent from './Footer/Footer'
 
 
 class FrontPage extends React.Component {

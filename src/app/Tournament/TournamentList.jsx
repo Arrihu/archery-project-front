@@ -6,7 +6,6 @@ import './tournament.scss'
 
 
 class TournamentList extends React.Component {
-
     render() {
         const { tournaments } = this.props.dataState
 

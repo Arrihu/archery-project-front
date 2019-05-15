@@ -11,6 +11,11 @@ export default {
       icon:'icon-shield'
     },
     {
+      name: 'Category',
+      url: '/category',
+      icon: 'icon-shield'      
+    },
+    {
       name: 'Data Master',
       icon: 'icon-pie-chart',
       children: [
@@ -55,6 +60,6 @@ export default {
       name: 'Role',
       url: '/role',
       icon: 'icon-lock'      
-    }
+    },
   ]
 };

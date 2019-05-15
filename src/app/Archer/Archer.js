@@ -1,42 +1,62 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { ArcherAPI } from '../../api/ArcherAPI'
 
-// import ArcherForm from './ArcherForm'
+import ArcherForm from './ArcherForm'
 import ArcherList from './ArcherList'
+import ArcherTableHeader from '../Archer/components/ArcherTableHeader'
 
 
-const Archer = () => {
-    const [id, setId] = useState('')
-    const [name, setName] = useState('')
-    const [gender, setGender] = useState('')
-    const [age, setAge] = useState('')
-    const [clubId, setClubId] = useState('')
-    const [tournamentId, setTournamentId] = useState('')
-    const [archers, setArchers] = useState([])
-    const [mode, setMode] = useState('add')
-    const [showArcherForm, setShowArcherForm] = useState(false)
+class Archer extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            id: '',
+            name: '',
+            gender: '',
+            age: '',
+            clubId: '',
+            tournamentId: '',
 
-    useEffect(() => {
-        listAllArchers()
-    })
-
-    const listAllArchers = () => {
-        const getArchers = async () => {
-            const archers = await ArcherAPI.getArchers()
-            setArchers(archers)
+            archers: [],
+            showArcherForm: false,
+            mode: 'add'
         }
-        getArchers()
     }
-    
-    return (
-        <div>
-            {!showArcherForm &&
-                <ArcherList 
-                    archers={archers}
-                />
-            }
-        </div>
-    )
+
+    componentDidMount() {
+        this.getArchers()
+    }
+
+    toggleArcherForm = () => {
+        this.setState({
+            showArcherForm: !this.state.showArcherForm
+        })
+    }
+
+    getArchers = async () => {
+        const archers = await ArcherAPI.getArchers()
+        this.setState({ archers })
+    }
+
+    render() {
+        return (
+            <div>
+                {this.state.showArcherForm &&
+                    <ArcherForm
+                    
+                    />
+                }
+
+                {!this.state.showArcherForm &&
+                    <ArcherList 
+                        dataState={this.state}
+                        toggleArcherForm={this.toggleArcherForm}
+                        archerTableHeader={ArcherTableHeader}
+                    />
+                }
+            </div>
+        )
+    }
 }
 
 export default Archer

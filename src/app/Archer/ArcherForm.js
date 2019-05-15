@@ -9,7 +9,7 @@ class ArcherForm extends React.Component {
 
         return (
             <div>
-                {/* <Card> */}
+                <Card>
                     <form action="">
                         <Row>
                             <Col>
@@ -29,12 +29,12 @@ class ArcherForm extends React.Component {
                             <Col>
                                 <div className="form-group">
                                     <label htmlFor="age">Age</label>
-                                    <input type="text" name='age' className='form-control' placeholder='Name' value={name} onChange={this.props.handleChange} />
+                                    <input type="text" name='age' className='form-control' placeholder='Name' value={age} onChange={this.props.handleChange} />
                                 </div>
                             </Col>
                         </Row>
                     </form>
-                {/* </Card> */}
+                </Card>
             </div>
         )
     }
