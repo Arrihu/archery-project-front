@@ -53,8 +53,11 @@ class TournamentForm extends React.Component {
                             <span className='btn-action-form'></span>
                             <Button onClick={this.props.onCancel}>Cancel</Button>
                         </div> */}
-                        <div align='right'>
+                        {/* <div align='right'>
                             <Button color='success' type='submit'>Next</Button>
+                        </div> */}
+                        <div align='right'>
+                            <Link to='/setting' className='btn btn-success'>Next</Link>
                         </div>
                     </form>
                 </Card>
