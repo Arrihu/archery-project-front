@@ -48,17 +48,14 @@ class TournamentForm extends React.Component {
                             </Col>
                         </Row>
 
-                        {/* <div>
+                        <div>
                             <Button color="primary" onClick={this.props.onCreateTournament}>Submit</Button>
                             <span className='btn-action-form'></span>
                             <Button onClick={this.props.onCancel}>Cancel</Button>
-                        </div> */}
+                        </div>
                         {/* <div align='right'>
                             <Button color='success' type='submit'>Next</Button>
                         </div> */}
-                        <div align='right'>
-                            <Link to='/setting' className='btn btn-success'>Next</Link>
-                        </div>
                     </form>
                 </Card>
             </div>

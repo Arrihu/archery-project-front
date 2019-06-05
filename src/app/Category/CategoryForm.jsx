@@ -38,16 +38,19 @@ class CategoryForm extends React.Component {
 
                             <Col>
                                 <div className="form-group">
-                                    <label htmlFor="categoryType">Type</label>
-                                    <input type="text" name='type' className='form-control' placeholder='Category type' value={type} onChange={this.props.handleChange} />
-                                </div>
-                            </Col>
-
-                            <Col>
-                                <div className="form-group">
                                     <label htmlFor="categoryRange">Range</label>
                                     <input type="text" name='range' className='form-control' placeholder='Category range' value={range} onChange={this.props.handleChange} />
                                 </div>
+                            </Col>
+                        </Row>
+
+                        <Row>
+                            <Col>
+                            
+                            </Col>
+                            
+                            <Col>
+                            
                             </Col>
                         </Row>
 

@@ -58,34 +58,7 @@ class Arrow extends React.Component {
             mode: 'update'
         })
         this.toggleArrowForm()
-    }
-
-    addArrow = (arrow) => {
-        const { arrows } = this.state
-        arrows.push(arrow)
-        this.setState({
-            arrows
-        })
-    }
-
-    updateArrow = (arrow) => {
-        const { arrows } = this.state
-        let index = arrows.findIndex((data) => data.id === arrow.id)
-        arrows[index] = arrow
-        this.setState({
-            arrows: arrows,
-            mode: 'add'
-        })
-        this.toggleArrowForm()
-    }
-
-    deleteArrow = (id) => {
-        const { arrows } = this.state
-        let temp = arrows.filter(data => data.id !== id)
-        this.setState({
-            arrows: temp
-        })
-    }
+    }    
 
     listAllArrow = () => {
         axios.get('http://localhost:3333/arrow')
@@ -94,6 +67,14 @@ class Arrow extends React.Component {
                     arrows: result.data.data
                 })
             })
+    }
+
+    addArrow = (arrow) => {
+        const { arrows } = this.state
+        arrows.push(arrow)
+        this.setState({
+            arrows
+        })
     }
 
     onCreateArrow = (event) => {
@@ -114,6 +95,17 @@ class Arrow extends React.Component {
         this.toggleArrowForm()
     }
 
+    updateArrow = (arrow) => {
+        const { arrows } = this.state
+        let index = arrows.findIndex((data) => data.id === arrow.id)
+        arrows[index] = arrow
+        this.setState({
+            arrows: arrows,
+            mode: 'add'
+        })
+        this.toggleArrowForm()
+    }
+
     onUpdateArrow = (event) => {
         event.preventDefault()
 
@@ -130,6 +122,14 @@ class Arrow extends React.Component {
             .then(res => this.updateArrow(res.data))
 
         this.resetForm()
+    }
+
+    deleteArrow = (id) => {
+        const { arrows } = this.state
+        let temp = arrows.filter(data => data.id !== id)
+        this.setState({
+            arrows: temp
+        })
     }
 
     onDeleteArrow = (id) => {

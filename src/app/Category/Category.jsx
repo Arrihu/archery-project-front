@@ -1,6 +1,5 @@
 import React from 'react'
 import axios from 'axios';
-
 import CategoryForm from './CategoryForm'
 import CategoryList from './CategoryList'
 
@@ -13,7 +12,6 @@ class Category extends React.Component {
             id: '',
             name: '',
             division: '',
-            type: '',
             range: '',
             targetId: '',
             tournamentId: '',
@@ -34,6 +32,12 @@ class Category extends React.Component {
         })
     }
 
+    toggleCategoryForm = () => {
+        this.setState({
+            showCategoryForm: !this.state.showCategoryForm
+        })
+    }
+
     onCancel = () => {
         this.resetForm()
         this.toggleCategoryForm()
@@ -44,33 +48,39 @@ class Category extends React.Component {
             id: '',
             name: '',
             division: '',
-            type: '',
             range: '',
+            targetId: '',
+            tournamentId: '',
             mode: 'add'
         })
     }
 
-    toggleCategoryForm = () => {
+    selectCategory = (category) => {
         this.setState({
-            showCategoryForm: !this.state.showCategoryForm
+            id: category.id,
+            name: category.name,
+            division: category.division,
+            range: category.range,
+            targetId: category.targetId,
+            tournamentId: category.tournamentId,
+            mode: 'update'
         })
+
+        this.toggleCategoryForm()
+    }
+
+    listAllCategorys = () => {
+        const url = 'http://localhost:3333/category'
+        
+        axios.get(url).then((response) => {
+                this.setState({ categorys: response.data.data })
+        }, [])
     }
 
     addCategory = (category) => {
         const { categorys } = this.state
         categorys.push(category)
         this.setState({ categorys })
-    }
-
-    listAllCategorys = () => {
-        const url = 'http://localhost:3333/category'
-        
-        axios.get(url)
-            .then((response) => {
-                this.setState({
-                    categorys: response.data.data
-                })
-        }, [])
     }
 
     onCreateCategory = (event) => {
@@ -80,8 +90,9 @@ class Category extends React.Component {
             id: this.state.id,
             name: this.state.name,
             division: this.state.division,
-            type: this.state.type,
-            range: this.state.range
+            range: this.state.range,
+            targetId: this.state.targetId,
+            tournamentId: this.state.tournamentId
         }
         axios.post(url, category)
             .then(res => res.data)
@@ -89,6 +100,19 @@ class Category extends React.Component {
 
         this.resetForm()
         this.toggleCategoryForm()
+    }
+
+    deleteCategory = (id) => {
+        const { categorys } = this.state
+        let tmp = categorys.filter(data => data.id !== id)
+        this.setState({ categorys: tmp })
+    }
+
+    onDeleteCategory = (id) => {
+        const url = `http://localhost:3333/category/delete/${id}`
+        axios.get(url)
+            .then(res => res.data)
+            .then(res => this.deleteCategory(id))
     }
 
     render() {
@@ -108,6 +132,8 @@ class Category extends React.Component {
                     <CategoryList 
                         dataState={this.state}
                         toggleCategoryForm={this.toggleCategoryForm}
+                        onDeleteCategory={this.onDeleteCategory}
+                        selectCategory={this.selectCategory}
                     />
                 }
             </div>

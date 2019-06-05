@@ -63,25 +63,6 @@ class Role extends React.Component {
         this.toggleRoleForm()
     }
 
-    addRole = (role) => {
-        const { roles } = this.state;
-        roles.push(role);
-        this.setState({roles});
-    }
-
-    updateRole = (role) => {
-        const { roles } = this.state
-        let index = roles.findIndex(data => data.id === role.id)
-        roles[index] = role
-        this.setState({roles: roles})
-    }
-
-    deleteRole = (id) => {
-        const { roles } = this.state;
-        let temp = roles.filter(data => data.id !== id);
-        this.setState({ roles: temp });
-    }
-
     listAllRole = () => {
         const URL = "http://localhost:3333/role"
 
@@ -91,6 +72,12 @@ class Role extends React.Component {
                     roles: response.data.data
                 });
             });
+    }
+
+    addRole = (role) => {
+        const { roles } = this.state;
+        roles.push(role);
+        this.setState({ roles });
     }
 
     onCreateRole = (event) => {
@@ -105,14 +92,21 @@ class Role extends React.Component {
         };
 
         axios.post(URL, role)
-            .then(response => response.data)
-            .then(response => this.addRole(response.data))
+            .then(res => res.data)
+            .then(res => this.addRole(res.data))
             .catch(error => {
                 console.log(error)
             })
 
         this.resetForm()
         this.toggleRoleForm()
+    }
+
+    updateRole = (role) => {
+        const { roles } = this.state
+        let index = roles.findIndex(data => data.id === role.id)
+        roles[index] = role
+        this.setState({roles: roles})
     }
 
     onUpdateRole = (event) => {
@@ -132,6 +126,12 @@ class Role extends React.Component {
 
         this.resetForm();
         this.toggleRoleForm()
+    }
+
+    deleteRole = (id) => {
+        const { roles } = this.state;
+        let temp = roles.filter(data => data.id !== id);
+        this.setState({ roles: temp });
     }
 
     onDeleteRole = (id) => {

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button, Card, Row, Col } from 'reactstrap'
 
-import UserSelect from '../../components/User/UserSelect'
+import UserSelect from '../../components/UserSelect/UserSelect'
 import './role.scss'
 
 

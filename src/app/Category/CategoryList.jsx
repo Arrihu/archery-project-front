@@ -1,6 +1,5 @@
 import React from 'react'
 import { Table, Button, Row, Col, Card, CardTitle } from 'reactstrap'
-
 import './category.scss'
 
 
@@ -40,8 +39,9 @@ class CategoryList extends React.Component {
                                 <th>#</th>
                                 <th>Name</th>
                                 <th>Division</th>
-                                <th>Type</th>
                                 <th>Range</th>
+                                <th>Target</th>
+                                <th>Tournament</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -55,18 +55,19 @@ class CategoryList extends React.Component {
                                             <td>{i+1}</td>
                                             <td>{category.name}</td>
                                             <td>{category.division}</td>
-                                            <td>{category.type}</td>
                                             <td>{category.range}</td>
+                                            <td>{category.targetId}</td>
+                                            <td>{category.tournamentId}</td>
                                             <td>
                                                 <Button color='success' size='sm'>
                                                     <i className='cui-magnifying-glass'></i>
                                                 </Button>
                                                 <span></span>
-                                                <Button color='warning' size='sm'>
+                                                <Button color='warning' size='sm' onClick={this.props.selectCategory.bind(this, category)}>
                                                     <i className='cui-note'></i>
                                                 </Button>
                                                 <span></span>
-                                                <Button color='danger' size='sm'>
+                                                <Button color='danger' size='sm' onClick={this.props.onDeleteCategory.bind(this, category.id)}>
                                                     <i className='cui-trash'></i>
                                                 </Button>
                                             </td>

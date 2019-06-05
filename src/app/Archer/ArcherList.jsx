@@ -1,11 +1,10 @@
 import React from 'react'
-import { Table, Button, Card } from 'reactstrap'
+import { Table, Button, Card, CardTitle } from 'reactstrap'
 
-import ArcherTableHeader from './components/ArcherTableHeader'
 import Pagination from '../../components/Pagination/Pagination'
 import './scss/archer.scss'
 
-
+    
 class ArcherList extends React.Component {
 
     render() {
@@ -13,8 +12,15 @@ class ArcherList extends React.Component {
         return (
             <div>
                 <Card>
-                    <ArcherTableHeader archerTableHeader={this.props.archerTableHeader} />
-    
+                    <div className='archer-list-title'>
+                        <CardTitle className='mb-0'><h3><b>List of archers</b></h3></CardTitle>
+                        <div className='small text-muted'>This is list of all archers data</div>
+
+                        <br />
+                        <Button color='primary' onClick={this.props.toggleArcherForm}>
+                            <i className='cui-circle-check'></i> <b>Add Archer</b>
+                        </Button>
+                    </div>
                     <Table hover>
                         <thead>
                             <tr>
@@ -45,11 +51,11 @@ class ArcherList extends React.Component {
                                                     <i className='cui-magnifying-glass'></i>
                                                 </Button>
                                                 <span></span>
-                                                <Button color='warning' size='sm'>
+                                                <Button color='warning' size='sm' onClick={this.props.selectArcher.bind(this, archer)}>
                                                     <i className='cui-note'></i>
                                                 </Button>
                                                 <span></span>
-                                                <Button color='danger' size='sm'>
+                                                <Button color='danger' size='sm' onClick={this.props.onDeleteArcher.bind(this, archer.id)}>
                                                     <i className='cui-trash'></i>
                                                 </Button>
                                             </td>

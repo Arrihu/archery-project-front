@@ -1,10 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { Form, FormGroup, Label, Row, Col, Button, Card } from 'reactstrap'
-
-import BowSelect from '../../components/SetupTournament/BowSelect/BowSelect'
-import ArrowSelect from '../../components/SetupTournament/ArrowSelect/ArrowSelect'
-import CategorySelect from '../../components/SetupTournament/CategorySelect/CategorySelect'
+import ArcherForm from '../Archer/ArcherForm'
+import CategorySelect from '../../components/CategorySelect/CategorySelect'
 import './tournament.scss'
 
 
@@ -23,17 +21,7 @@ class TournamentSetting extends React.Component {
                     <Form>
                         <Row>
                             <Col>
-                                <FormGroup>
-                                    <Label>Pilih Busur</Label>
-                                    <BowSelect />
-                                </FormGroup>
-                            </Col>
-
-                            <Col>
-                                <FormGroup>
-                                    <Label>Pilih Arrow</Label>
-                                    <ArrowSelect />
-                                </FormGroup>
+                                
                             </Col>
 
                             <Col>
