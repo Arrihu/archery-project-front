@@ -20,6 +20,11 @@ export default {
       icon: 'icon-pie-chart',
       children: [
         {
+          name: 'Archer',
+          url: '/data-master/archer',
+          icon: 'icon-shield'
+        },
+        {
           name: 'Club',
           url: '/data-master/club',
           icon: 'icon-shield'
@@ -42,11 +47,6 @@ export default {
         {
           name: 'Event Organizer',
           url: '/data-master/event_organizer',
-          icon: 'icon-shield'
-        },
-        {
-          name: 'Archer',
-          url: '/data-master/archer',
           icon: 'icon-shield'
         }
       ]
