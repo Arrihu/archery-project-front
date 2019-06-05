@@ -1,10 +1,10 @@
 import axios from 'axios'
 
-const BASE_URL = 'http://localhost:3333'
+const BASE_API_URL = 'http://localhost:3333'
 
 export const ArcherAPI = {
     getArchers: async () => {
-        const URL = `${BASE_URL}/archer`
+        const URL = `${BASE_API_URL}/archer`
         try {
             const response = await axios.get(URL)
             return response.data.data
