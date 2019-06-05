@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Table } from 'reactstrap'
-import { TournamentAPI } from '../../../api/TournamentAPI'
+import { TournamentAPI } from '../../api/TournamentAPI'
 
 import './list_tournament.scss'
 
@@ -27,9 +27,9 @@ const ListTournament = () => {
                 <tbody>
                     {
                         typeof(tournaments) === 'object' &&
-                        tournaments.map((tournament) => {
+                        tournaments.map((tournament, i) => {
                             return (
-                                <tr>
+                                <tr key={i}>
                                     <td>{tournament.name}</td>
                                 </tr>
                             )
