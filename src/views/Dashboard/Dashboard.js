@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Row, Col, Container } from 'reactstrap';
 
-import ListTournament from '../../components/SetupTournament/TournamentList/TournamentList'
+import ListTournament from '../../components/TournamentList/TournamentList'
 import './dashboard.scss'
 
 
